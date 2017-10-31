@@ -1,5 +1,5 @@
 module.exports = {
-    allProducts: function (req,res, next) {
+    getAllProducts: function (req, res, next) {
         const db = req.app.get('db');
 
         db.allProducts()

@@ -1,18 +1,34 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {getProductInfo} from './../../ducks/reducer'
+import {getProductInfo, addToCart} from './../../ducks/reducer'
+import Header from './../Header/Header'
 
 
 class ProductDetails extends Component {
     
+componentWillMount(){
+  this.props.getProductInfo(this.props.match.params.id)
+}
+
   render() {
-    const product = this.props.product;
-    //console.log("hello")
+   
+    const productInfo = this.props.product.map(item => {
+      
+      return (
+        <div key={item.id}>
+          <p>{item.name}</p>
+          <p> {item.product_image} </p>
+          <p>{item.description}</p>
+          <p>${item.price}</p>
+          <button onClick={ () => this.props.addToCart(item)}>Add to Cart</button>
+        </div>
+      )
+    });
     return (
       <div>
+        <Header/>
         <h1>Product Details</h1>
-        {product ? product.name : null}
-
+        {productInfo}
       </div>
     )
   }
@@ -21,4 +37,4 @@ class ProductDetails extends Component {
 function mapStateToProps(state){
     return { product: state.product}
 }
-export default connect (mapStateToProps, {getProductInfo})(ProductDetails);
+export default connect (mapStateToProps, {getProductInfo, addToCart})(ProductDetails);

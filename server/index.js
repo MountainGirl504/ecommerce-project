@@ -79,7 +79,7 @@ app.get('/auth/me', function(req,res){
 
 //===========PRODUCT ENDPOINTS===========//
 
-app.get('/product/all', controller.allProducts);
+app.get('/product/all', controller.getAllProducts);
 app.get('/product/:id', controller.productInfo);
 app.delete('/product/:id', controller.deleteItem);
 

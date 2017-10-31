@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 
+function Header(){
 
-export default class Header extends Component {
-  render() {
     return (
-      <div>
         <div>
             <ul>
                 <Link to='/'><li>Home</li></Link>
@@ -14,7 +12,6 @@ export default class Header extends Component {
                 <Link to='/cart'><li>Cart</li></Link>
             </ul>
         </div>
-      </div>
     )
   }
-}
+export default Header;
