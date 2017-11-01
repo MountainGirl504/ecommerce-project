@@ -24,16 +24,18 @@ export function getAllProducts(){
         payload: axios.get('/product/all')
     }
 }
-export function addToCart(product){
+export function addToCart(itemId){
+    //console.log("Hi")
     return {
         type: ADD_TO_CART,
-        payload: product
+        payload: axios.get(`/product/${itemId}`)
     }
 }
-export function removeFromCart(productIndex){
+export function removeFromCart(index){
+    console.log("REMOVE")
     return {
         type: REMOVE_FROM_CART,
-        payload: productIndex
+        payload: index
     }
 }
 
@@ -46,14 +48,17 @@ export default function reducer( state = initialState, action){
         return Object.assign({}, state, {product: action.payload.data});
 
         case GET_ALL_PRODUCTS + '_FULFILLED':
+        //console.log(action.payload.data)
         return Object.assign({}, state, {product: action.payload.data});
 
-        case ADD_TO_CART:
-        return Object.assign({}, state, {shoppingCart: [...state.shoppingCart, action.payload]})
+        case ADD_TO_CART + '_FULFILLED':
+        // console.log(action.payload);
+        return Object.assign({}, state, {shoppingCart: [...state.shoppingCart, action.payload.data[0]]})
 
         case REMOVE_FROM_CART:
         let newArr = state.shoppingCart.slice();
-        newArr.splice(action.index, 1);
+        newArr.splice(action.payload, 1);
+        //console.log(state.shoppingCart)
         return Object.assign({}, state, {shoppingCart: newArr});
 
         default:

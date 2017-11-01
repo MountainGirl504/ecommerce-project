@@ -1,45 +1,49 @@
 import React, { Component } from 'react'
 import Header from './../Header/Header'
-import {connect} from 'react-redux'
-import {removeFromCart} from './../../ducks/reducer'
+import { connect } from 'react-redux'
+import { removeFromCart } from './../../ducks/reducer'
+import { Link } from 'react-router-dom'
 
 class Cart extends Component {
 
-componentWillMount(){
-  //this.props.addToCart();
-  this.props.removeFromCart();
-}
+
+
 
   render() {
-    let cartContent = this.props.shoppingCart.map((item, i) => {
-     console.log('blah')
-     //console.log(item)
+    let cartContent = this.props.shoppingCart.map((item, index) => {
+      console.log(this.props.shoppingCart)
       return (
         <div key={item.id}>
-          <img src={item.product_image} alt='main-img'/>
+          <p>{item.product_image}</p>
           <p>{item.name}</p>
           <p>{item.description}</p>
           <p>${item.price}</p>
-          <button onClick={() => this.props.removeFromCart(item)}>Delete</button>
+          <button onClick={() => this.props.removeFromCart(index)}>Delete</button>
         </div>
       )
     })
     return (
       <div>
-          <Header/>
+        <Header />
         <h1>This is your cart</h1>
-        {cartContent[0] ? cartContent && <button>Proceed to Checkout</button> 
-          : <h3>Your shopping cart is empty!</h3> 
-          && <button>Go Shopping!</button>
-        }
-        
+        {cartContent.length !== 0 ? (
+          <div>
+            {cartContent} <button>Proceed to Checkout</button>
+          </div>
+        ) : (
+          <div>
+             <h3>Your Cart is empty</h3>
+             <Link to='/'><button>Go Shopping</button></Link>
+          </div>
+          )}
+
       </div>
     )
   }
 }
-function mapStateToProps (state){
-  return{
+function mapStateToProps(state) {
+  return {
     shoppingCart: state.shoppingCart
   }
 }
-export default connect(mapStateToProps, {removeFromCart})(Cart)
+export default connect(mapStateToProps, { removeFromCart })(Cart)
