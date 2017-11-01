@@ -7,11 +7,9 @@ import { Link } from 'react-router-dom'
 class Cart extends Component {
 
 
-
-
   render() {
     let cartContent = this.props.shoppingCart.map((item, index) => {
-      console.log(this.props.shoppingCart)
+      //console.log(this.props.shoppingCart)
       return (
         <div key={item.id}>
           <p>{item.product_image}</p>

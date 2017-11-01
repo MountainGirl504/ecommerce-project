@@ -9,8 +9,6 @@ class ProductDetails extends Component {
     
 componentWillMount(){
   this.props.getProductInfo(this.props.match.params.id);
-  // const {product} = this.props
-  // this.props.addToCart(product);
 }
 
   render() {
