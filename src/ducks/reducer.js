@@ -3,15 +3,23 @@ import axios from 'axios';
 
 const initialState = {
     product: [],
-    shoppingCart: []
+    shoppingCart: [], 
+    total: 0
 }
 
 const GET_PRODUCT_INFO = 'GET_PRODUCT_INFO'
 const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const CALC_TOTAL = 'CALC_TOTAL'
 
 
+export function calculateTotal(){
+    return {
+        type: CALC_TOTAL,
+        payload: null
+    }
+}
 export function getProductInfo(id){
     return {
         type: GET_PRODUCT_INFO,
@@ -61,7 +69,15 @@ export default function reducer( state = initialState, action){
         //console.log(action.payload)
         return Object.assign({}, state, {shoppingCart: newArr});
 
-        
+        case CALC_TOTAL:
+        let newCart = state.shoppingCart.slice();
+        let newTotal = 0;
+        newCart.map( (item, i) => {
+    console.log(item)
+            newTotal += parseInt(item.price, 10);
+    console.log(newTotal)
+        })
+        return Object.assign ({}, state, {total: newTotal} )
 
         default:
         return state;

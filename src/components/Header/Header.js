@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Header(){
+function Header () {
     
+        
     return (
         <div>
             <ul>
@@ -14,5 +15,6 @@ function Header(){
             </ul>
         </div>
     )
-  }
+}
+  
 export default Header;

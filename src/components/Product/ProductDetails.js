@@ -13,7 +13,6 @@ componentWillMount(){
 
   render() {
     const productInfo = this.props.product.map(item => {
-       //console.log(this.props.product) //logs [{productObj}]
       //console.log(item)  //logs {item}
       //console.log(this.props)
        return (
@@ -40,7 +39,7 @@ componentWillMount(){
 }
 
 function mapStateToProps(state){
-    return { product: state.product,
+    return { product: state.product
             }
 }
 export default connect (mapStateToProps, {getProductInfo, addToCart})(ProductDetails);

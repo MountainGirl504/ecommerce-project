@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from './../Header/Header'
 import Login from './../Login/Login'
 import { connect } from 'react-redux'
-import { getAllProducts} from './../../ducks/reducer'
+import { getAllProducts, addToCart} from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
 
 
@@ -27,7 +27,7 @@ class Home extends Component {
 
     handleChange(val) {
         this.setState({
-            userInput: val, 
+            userInput: val
         })
     }
 
@@ -53,6 +53,9 @@ class Home extends Component {
                     </Link>
                     <p>{item.description}</p>
                     <p>${item.price}</p>
+                    <button 
+                        onClick={ () => this.props.addToCart(item.id)}>Buy
+                    </button>
                 </div>
             )
         })
@@ -78,4 +81,4 @@ function mapStateToProps(state) {
         product: state.product
     }
 }
-export default connect(mapStateToProps, { getAllProducts})(Home);
+export default connect(mapStateToProps, { getAllProducts, addToCart})(Home);
