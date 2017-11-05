@@ -82,6 +82,7 @@ app.get('/auth/me', function(req,res){
 app.get('/product/all', controller.getAllProducts);
 app.get('/product/:id', controller.productInfo);
 app.delete('/product/:id', controller.deleteItem);
+app.get('/product/:category', controller.byCategory)
 
 const PORT = 5050;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

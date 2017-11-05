@@ -4,7 +4,9 @@ import axios from 'axios';
 const initialState = {
     product: [],
     shoppingCart: [], 
-    total: 0
+    total: 0,
+    items: 0,
+    category: []
 }
 
 const GET_PRODUCT_INFO = 'GET_PRODUCT_INFO'
@@ -12,7 +14,24 @@ const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 const CALC_TOTAL = 'CALC_TOTAL'
+const ITEMS_IN_CART = 'ITEMS_IN_CART'
+const GET_CATEGORY = 'GET_CATEGORY'
 
+
+export function getCategory(category){
+    //console.log('category', category)
+    return {
+        type: GET_CATEGORY,
+        payload: axios.get(`/product/category/${category}`)
+    }
+}
+
+export function cartItems (){
+    return {
+        type: ITEMS_IN_CART,
+        payload: null
+    }
+}
 
 export function calculateTotal(){
     return {
@@ -21,6 +40,7 @@ export function calculateTotal(){
     }
 }
 export function getProductInfo(id){
+    //console.log(id)
     return {
         type: GET_PRODUCT_INFO,
         payload: axios.get(`/product/${id}`)
@@ -46,8 +66,8 @@ export function removeFromCart(index){
         payload: index
     }
 }
-
-
+    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 export default function reducer( state = initialState, action){
     //console.log('reducer is running')
     //console.log(state);
@@ -56,7 +76,7 @@ export default function reducer( state = initialState, action){
         return Object.assign({}, state, {product: action.payload.data});
 
         case GET_ALL_PRODUCTS + '_FULFILLED':
-        //console.log(action.payload.data)
+        //console.log("ALL PRODUCTS:", action.payload.data)
         return Object.assign({}, state, {product: action.payload.data});
 
         case ADD_TO_CART + '_FULFILLED':
@@ -72,12 +92,27 @@ export default function reducer( state = initialState, action){
         case CALC_TOTAL:
         let newCart = state.shoppingCart.slice();
         let newTotal = 0;
+        //console.log("it get here", state.shoppingCart)
         newCart.map( (item, i) => {
-    console.log(item)
-            newTotal += parseInt(item.price, 10);
-    console.log(newTotal)
+            return newTotal += parseInt(item.price, 10);
+            //console.log("TOTAL:", newTotal)
         })
-        return Object.assign ({}, state, {total: newTotal} )
+        return Object.assign ({}, state, {total: newTotal} );
+
+        case ITEMS_IN_CART:
+        let newShopCart = state.shoppingCart.slice();
+        let itemsNumber;
+        newShopCart.map( (item, i) => {
+            return itemsNumber = newShopCart.length
+            //console.log('ITEMS IN CART', itemsNumber)
+        })
+        return Object.assign({}, state, {items: itemsNumber});
+
+        case GET_CATEGORY + '_FULFILLED':
+        console.log("Get Here!")
+        console.log("CATEGORY" , action.payload.data)
+        return Object.assign ({}, state, {category: action.payload.data})
+
 
         default:
         return state;

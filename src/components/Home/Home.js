@@ -1,84 +1,67 @@
 import React, { Component } from 'react'
-import Header from './../Header/Header'
-import Login from './../Login/Login'
 import { connect } from 'react-redux'
-import { getAllProducts, addToCart} from './../../ducks/reducer'
+import { getAllProducts, addToCart, calculateTotal, cartItems } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
-
+import Navbar from './../Navbar/Navbar'
+import './Home.css'
 
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            userInput: '',
-            products: []    //changing state from redux is hard, that's why bring it to local state.
-        }
-    }
 
     componentDidMount() {
-        this.props.getAllProducts().then(() => {
-            this.setState({
-                products: this.props.product
+        this.props.getAllProducts()
+    }
+
+    handleClick(id) {           //BUY button on the Home page
+        this.props.addToCart(id)
+            .then(() => {
+                this.props.calculateTotal()
+                this.props.cartItems()
             })
-        });
-
-    }
-
-    handleChange(val) {
-        this.setState({
-            userInput: val
-        })
-    }
-
-    handleSearch(userInput){       
-        let filteredList = this.props.product.filter( item => {  //filter thought the original products, and not filtered ones
-            let input = userInput.toLowerCase()
-            let name = item.name.toLowerCase()
-            return name.includes(input)
-        })
-        this.setState({
-           products: filteredList 
-        })
-        console.log('filtered:', filteredList);
     }
 
     render() {
-        const products = this.state.products.map((item, i) => {                    
+        const products = this.props.product.map((item, i) => {
+            //console.log(item)                  
             return (
-                <div key={item.id}>
-                    <p>{item.name}</p>
-                    <Link to={`/productDetails/${item.id}`}>
-                        <p> {item.product_image} </p>
-                    </Link>
-                    <p>{item.description}</p>
-                    <p>${item.price}</p>
-                    <button 
-                        onClick={ () => this.props.addToCart(item.id)}>Buy
-                    </button>
+
+                <div className='item-container' key={item.id} >
+                    <div className='pic-container' ><Link to={`/productDetails/${item.id}`}>
+                        <img className='main-pic' src={item.product_image} alt='main-pic' /></Link></div>
+                    <div className='item-name'>{item.name}</div>
+                    <div className='price-btn-div'>
+                        <div className='price'>${item.price}</div>
+                        <div className='btn-div'><button className='btn'
+                            onClick={() => this.handleClick(item.id)}>Add to Cart
+                            </button></div>
+                    </div>
                 </div>
+
             )
         })
+
+
+
+
         return (
             <div>
-                <Header />
-                <input type='text' placeholder='Search' value={this.state.userInput}
-                    onChange={(e) => this.handleChange(e.target.value)} />
-                <button 
-                    onClick ={() => this.handleSearch(this.state.userInput)}>Find!
-                </button> 
-                <Login />
-                <h1>This is a Home page</h1>
-                <p>Product: </p>
-                {products}
+            <Navbar />
+            <div className='home-page'>
+                <div className='main-container'>
+                    {products}
+                </div>
+            </div>
             </div>
         )
     }
+
 }
 
 function mapStateToProps(state) {
     return {
+        total: state.total,
+        items: state.items,
         product: state.product
     }
 }
-export default connect(mapStateToProps, { getAllProducts, addToCart})(Home);
+export default connect(mapStateToProps, { getAllProducts, addToCart, calculateTotal, cartItems })(Home);
