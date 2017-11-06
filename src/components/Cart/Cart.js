@@ -3,49 +3,74 @@ import Navbar from './../Navbar/Navbar'
 import { connect } from 'react-redux'
 import { removeFromCart, calculateTotal, cartItems } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
+import StripeCheckout from 'react-stripe-checkout'
+//import stripe from './stripeKey'
+import axios from 'axios'
+import './../Product/ProductDetail.css'
+import './Cart.css'
 
 class Cart extends Component {
 
-  componentDidMount(){    //invoked after a component is mounted
+  componentDidMount() {    //invoked after a component is mounted
     this.props.calculateTotal(); //calculates total in small cart ONLY after hitting Cart
   }
-  componentWillUpdate(){      //this will run every time we have a change on state
+  componentWillUpdate() {      //this will run every time we have a change on state
     this.props.calculateTotal()  //calculates total after removing an item from cart
-    this.props.cartItems()    
+    this.props.cartItems()
+  }
+
+  onToken = (token) => {
+    token.card = void 0;
+    //console.log('token', token) ;
+    axios.post('api/payment', { token, amount: 100 })
+      .then(response => {
+        alert('We are in business!')
+      });
   }
 
   render() {
     let cartContent = this.props.shoppingCart.map((item, index) => {
       return (
-        <div key={index}>
-          <img src={item.product_image} alt='pic'/>
-          <p>{item.name}</p>
-          <p>{item.description}</p>
-          <p>${item.price}</p>
-          <button onClick={() => this.props.removeFromCart(index)}>Delete</button>
-          
-        </div>
+        <div key={index} className='cart-item-container'>
+          <div className='small-pic-div'>
+            <img className='pic2' src={item.product_image} alt='pic' />
+          </div>
+          <div className='cart-details'>
+            <div className='cart-name'><p>{item.name}</p></div>
+            <div className='cart-price' id='price'><p>${item.price}</p></div>
+          </div>
+            <div className='cart-btn '><button className='cart-btn1' onClick={() => this.props.removeFromCart(index)}>X Remove</button></div>
+          </div>
       )
     })
-    
+
     return (
       <div>
-        <Navbar/>
-        <h1>This is your cart</h1>
-        {cartContent.length !== 0 ? (
-          <div>
-            {cartContent} 
-            <h1>TOTAL: {this.props.total}</h1>
-            <button>Continue Shopping</button>
-            <button>Proceed to Checkout</button>
+        <Navbar />
+        <div className='cart-page'>
+          <div className='cart-main-container'>
+            {cartContent.length !== 0 ? (
+              <div>
+                {cartContent}
+                <div className='total-div'><h1 className='total'>TOTAL: ${this.props.total}</h1></div>
+                <div className='cart-shop-pay'>
+                <Link to='/'><button className='btn1'>Continue Shopping</button></Link>
+                <div className='pay'><StripeCheckout 
+                  token={this.onToken}
+                  stripeKey={process.env.STRIPE_PUB_KEY}
+                  amount={this.props.total * 100}
+                />
+                </div>
+                </div>
+              </div>
+            ) : (
+                <div className='empty-cart'>
+                  <div className='empty-message'><h3>Your Cart is empty ...</h3></div>
+                  <div ><Link to='/'><button className='btn1'>Go Shopping</button></Link></div>
+                </div>
+              )}
           </div>
-        ) : (
-          <div>
-             <h3>Your Cart is empty</h3>
-             <Link to='/'><button>Go Shopping</button></Link>
-          </div>
-          )}
-        
+        </div>
       </div>
     )
   }
@@ -54,7 +79,7 @@ class Cart extends Component {
 function mapStateToProps(state) {
   return {
     shoppingCart: state.shoppingCart,
-    total: state.total, 
+    total: state.total,
     items: state.items
   }
 }

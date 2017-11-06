@@ -45,12 +45,12 @@ class Home extends Component {
 
         return (
             <div>
-            <Navbar />
-            <div className='home-page'>
-                <div className='main-container'>
-                    {products}
+                <Navbar />
+                <div className='home-page'>
+                    <div className='main-container'>
+                        {products}
+                    </div>
                 </div>
-            </div>
             </div>
         )
     }

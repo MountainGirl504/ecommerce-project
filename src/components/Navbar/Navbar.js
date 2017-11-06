@@ -30,17 +30,17 @@ class Navbar extends Component {
             <div>
                 <div className='main-header'>
                     <div className='persistent-nav'>
-                        <div className='name'>buy stuff store</div> 
+                        <div className='name' ><Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}>buy stuff store</Link></div> 
 
                         <div className='search-div'>
                             <div ><input className='input-box' type='text'  placeholder='Search designers, products and more...'
                                 onChange={this.handleChange}/></div>
-                            <div className='find-box'><Link to={`/search/${this.state.userInput}`} onClick={this.props.find}> FIND
+                            <div className='find-box'><Link to={`/search/${this.state.userInput}`} onClick={this.props.find} style={{  color: 'lavenderblush' }}> FIND
                             </Link></div> 
                         </div>   
 
                     
-                        <div className='nav-login'><a href={process.env.REACT_APP_LOGIN}> sign In | register</a></div>
+                        <div className='nav-login' ><a href={process.env.REACT_APP_LOGIN} style={{ color: 'lavenderblush' }}> Sign In/Register</a></div>
 
 
                         <div className='shop-div'>
@@ -52,12 +52,12 @@ class Navbar extends Component {
                     </div>
 
                     <div className='navbar'>
-                        <Link to='/'><div className='shop-div'>Home</div></Link>
-                        <Link to='/product/category/woman'><div className='women-div'>Women</div></Link>
-                        <Link to='/product/category/men'><div className='men-div'>Men</div></Link>
-                        <Link to='/product/category/boys'><div className='boys-div'>Boys</div></Link>
-                        <Link to='/product/category/girls'><div className='girls-div'>Girls</div></Link>
-                        <Link to='/cart'><div className='cart-div'>Cart</div></Link>
+                        <Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='shop-div'>Home</div></Link>
+                        <Link to='/product/category/woman' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='women-div' style={{ textDecoration: 'none' }}>Women</div></Link>
+                        <Link to='/product/category/men' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='men-div'>Men</div></Link>
+                        <Link to='/product/category/boys' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='boys-div' style={{ textDecoration: 'none' }}>Boys</div></Link>
+                        <Link to='/product/category/girls' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='girls-div' style={{ textDecoration: 'none', color: 'lavenderblush' }}>Girls</div></Link>
+                        <Link to='/cart' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='cart-div' >Cart</div></Link>
                     </div>
                 </div>
             </div>

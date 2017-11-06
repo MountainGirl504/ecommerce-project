@@ -21,8 +21,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4vh;
-    font-weight: 700;
+    color: lavenderblush;
+    font-size: 3vh;
+    font-weight: 300;
+    font-family: 'Pacifico', sans-serif;
  }
 
 /**** SEARCH ****/
@@ -36,12 +38,12 @@
  }
  .input-box {
     width: 26vw;
-    height: 3vh;
+    height: 2vh;;
     margin: 9px;
  }
  .find-box {
     width: 50%;
-
+    
  }
 
 
@@ -51,7 +53,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  
+    font-style: italic;
+   
  }
 
  /*** SHOP ***/
@@ -90,4 +93,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    font-size: 19px;
+    color: white;
  }
+
