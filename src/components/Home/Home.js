@@ -4,6 +4,7 @@ import { getAllProducts, addToCart, calculateTotal, cartItems } from './../../du
 import { Link } from 'react-router-dom'
 import Navbar from './../Navbar/Navbar'
 import './Home.css'
+import Landing from './../Landing/Landing'
 
 
 class Home extends Component {
@@ -27,25 +28,25 @@ class Home extends Component {
 
                 <div className='item-container' key={item.id} >
                     <div className='pic-container' ><Link to={`/productDetails/${item.id}`}>
-                        <img className='main-pic' src={item.product_image} alt='main-pic' /></Link></div>
+                        <img className='main-pic' src={item.product_image} alt='main-pic' /></Link>
+                    </div>
                     <div className='item-name'>{item.name}</div>
                     <div className='price-btn-div'>
                         <div className='price'>${item.price}</div>
                         <div className='btn-div'><button className='btn'
                             onClick={() => this.handleClick(item.id)}>Add to Cart
-                            </button></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
             )
         })
 
-
-
-
         return (
             <div>
                 <Navbar />
+                <Landing/>
                 <div className='home-page'>
                     <div className='main-container'>
                         {products}

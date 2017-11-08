@@ -3,20 +3,24 @@ import bag2 from '../../Assets/bag-icon2.png'
 import { Link } from 'react-router-dom'
 //import Search from './../Seach/Search'
 import { connect } from 'react-redux'
-import { calculateTotal, cartItems } from './../../ducks/reducer'
+import { calculateTotal, cartItems, getUserInfo } from './../../ducks/reducer'
 import './Navbar.css'
 
 
 
 class Navbar extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
-            userInput: ''
+            userInput: '',
+            userData: {}
         }
         this.handleChange=this.handleChange.bind(this);
     }
 
+    componentDidMount(){
+        this.props.getUserInfo();
+    }
 
     handleChange(e){
         this.setState({
@@ -37,14 +41,24 @@ class Navbar extends Component {
                                 onChange={this.handleChange}/></div>
                             <div className='find-box'><Link to={`/search/${this.state.userInput}`} onClick={this.props.find} style={{  color: 'lavenderblush' }}> FIND
                             </Link></div> 
-                        </div>   
+                        </div>  
 
-                    
-                        <div className='nav-login' ><a href={process.env.REACT_APP_LOGIN} style={{ color: 'lavenderblush' }}> Sign In/Register</a></div>
 
+                        
+                        <div className='nav-login-div'>
+                            {this.props.userData.user_name ?
+                            (<div className='hello-logout-div'>
+                                <div className='hello-message'>Hello, {this.props.userData.user_name}!</div>
+                                <div className='nav-logout' ><a href='http://localhost:5050/auth/logout' style={{ color: 'lavenderblush' }}>Logout</a></div>
+                            </div>
+                            ) :
+                            <div className='nav-login' ><a href={process.env.REACT_APP_LOGIN} style={{ color: 'lavenderblush' }}> Login / Register </a></div>
+                            }
+                        </div>
+                            
 
                         <div className='shop-div'>
-                            <div className='bag-img'><img src={bag2} alt="" className='bag' /></div>
+                            <Link to='/cart'><div className='bag-img'><img src={bag2} alt="" className='bag' /></div></Link>
                             <div className='num-item'>({this.props.items})</div>
                             <div className='num-total'>${this.props.total}</div>
                         </div>
@@ -67,7 +81,8 @@ class Navbar extends Component {
 function mapStateToProps(state) {
     return {
         total: state.total,
-        items: state.items
+        items: state.items, 
+        userData: state.user
     }
 }
-export default connect(mapStateToProps, { calculateTotal, cartItems })(Navbar)
+export default connect(mapStateToProps, { calculateTotal, cartItems, getUserInfo })(Navbar)

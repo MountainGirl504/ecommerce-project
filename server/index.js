@@ -91,13 +91,14 @@ app.post('/api/payment', function (req, res, next) {
         amount: convertedAmt, //in cents
         currency: 'usd',
         source: req.body.token.id,
-        description: 'Test charge from react app'
+        description: 'Test charge from Ecommerce app'
     }, function (err, charge) {
         if (err) return res.sendStatus(500)
         return res.sendStatus(200);
     });
 });
 
+ 
 
 //========== USER ENDPOINTS==========//
 app.get('/auth', passport.authenticate('auth0'));
@@ -112,13 +113,18 @@ app.get('/auth/me', function(req,res){
     }
     return res.status(200).send(req.user)
 });
+app.get('/auth/logout', function (req, res) {
+    console.log(req.user)
+    req.logOut();
+    res.redirect(process.env.LOGOUT_SUCCESS_REDIRECT);
+})
 
 //===========PRODUCT ENDPOINTS===========//
 
 app.get('/product/all', controller.getAllProducts);
 app.get('/product/:id', controller.productInfo);
 app.delete('/product/:id', controller.deleteItem);
-app.get('/product/:category', controller.byCategory)
+//app.get('/product/:category', controller.byCategory)
 
 const PORT = 5050;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

@@ -28,9 +28,9 @@ class ProductDetails extends Component {
             <img className='mainPic' src={item.product_image} alt='main-pic' />
           </div>
             <div className='details-div'>
-              <div className='detail-name'><p>{item.name}</p></div>
-              <div className='detail-description' id='hidden'><p>{item.description}</p></div>
-              <div className='detail-price'><p>${item.price}</p></div>
+              <div className='detail-name'>{item.name}</div>
+              <div className='detail-description' id='hidden'>{item.description}</div>
+              <div className='detail-price'>${item.price}</div>
               <div className='detail-btn '>
                 <Link to='/'><button className='btn1'>Continue Shopping</button></Link>
                 <Link to='/cart'><button className='btn2'

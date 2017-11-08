@@ -7,6 +7,8 @@ import ProductDetails from './components/Product/ProductDetails'
 import Search from './components/Seach/Search'
 import Navbar from './components/Navbar/Navbar'
 import Category from './components/Home/Category'
+import Holiday from './components/Landing/Holiday'
+import FallStyle from './components/Landing/FallStyle'
 
 class App extends Component {
   render() {
@@ -20,6 +22,8 @@ class App extends Component {
           <Route path='/productDetails/:id' component={ProductDetails}/>
           <Route path='/search/:searchItem' component={Search}/>
           <Route path='/product/category/:category' component={Category}/>
+          <Route path='/holiday' component={Holiday}/>
+          <Route path='/fallstyle' component={FallStyle}/>
         </div>
       
     );

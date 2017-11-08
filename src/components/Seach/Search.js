@@ -3,8 +3,8 @@ import axios from 'axios'
 import Navbar from './../Navbar/Navbar'
 import { Link } from 'react-router-dom'
 import './../Home/Home.css'
-import {addToCart,calculateTotal, cartItems } from './../../ducks/reducer'
-import {connect} from 'react-redux'
+import { getAllProducts, addToCart, calculateTotal, cartItems } from './../../ducks/reducer'
+import { connect } from 'react-redux'
 
 
 class Search extends Component {
@@ -17,12 +17,12 @@ class Search extends Component {
     }
   }
   componentWillMount() {
-    axios.get('/product/all')
-      .then(res => {
-        this.setState({
-          allProducts: res.data
-        })
-        let filteredItems = this.state.allProducts.filter((item, i) => {
+    // axios.get('/product/all')
+    //   .then(res => {
+    //     this.setState({
+    //       allProducts: res.data
+    //     })
+        let filteredItems = this.props.product.filter((item, i) => {
           let input = this.props.match.params.searchItem.toLowerCase();
           let name = item.name.toLowerCase();
           return name.includes(input)
@@ -30,37 +30,43 @@ class Search extends Component {
         this.setState({
           filteredList: filteredItems
         })
-      })
+      //})
   }
 
 
   render() {
-   
+
     let filtered = this.state.filteredList.map((item, i) => {
       if (this.state.allProducts) {
-
-      return (
-        <div className='item-container' key={i}>
-        <div><Link to={`/productDetails/${item.id}`}>
-                        <img className='main-pic' src={item.product_image} alt='main-pic' /></Link></div>
-          <div className='item-name'>{item.name}</div>
-          <div className='price'>${item.price}</div>
-          <div className='btn-div'><button className='btn'
-                            onClick={() => this.props.addToCart(item.id)}>Add to Cart
-                            </button>
-                        </div>
-        </div>
-        
-      )}
+        return (
+          <div className='item-container' key={i}>
+            <div className='pic-container'><Link to={`/productDetails/${item.id}`}>
+              <img className='main-pic' src={item.product_image} alt='main-pic' /></Link>
+            </div>
+            <div className='item-name'>{item.name}</div>
+            <div className='price-btn-div'>
+              <div className='price'>${item.price}</div>
+              <div className='btn-div'>
+                <button className='btn'
+                  onClick={() => this.props.addToCart(item.id)}>Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        )
+      } 
     })
-  
+
     return (
       <div>
         <Navbar />
         <div className='home-page'>
           <div className='main-container'>
-            {filtered}
-        </div>
+            {filtered.length ? 
+              {filtered} 
+              : <div className='notFound-message empty-cart'>Nothing Found</div>
+            }
+          </div>
         </div>
       </div>
     )
@@ -68,9 +74,9 @@ class Search extends Component {
 }
 function mapStateToProps(state) {
   return {
-      total: state.total,
-      items: state.items,
-      product: state.product
+    total: state.total,
+    items: state.items,
+    product: state.product
   }
 }
-export default connect (mapStateToProps, {addToCart}) (Search)
+export default connect(mapStateToProps, { getAllProducts, addToCart, calculateTotal, cartItems })(Search)

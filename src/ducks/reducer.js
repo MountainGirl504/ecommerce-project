@@ -6,7 +6,7 @@ const initialState = {
     shoppingCart: [], 
     total: 0.00,
     items: 0,
-    category: []
+    user: {}
 }
 
 const GET_PRODUCT_INFO = 'GET_PRODUCT_INFO'
@@ -15,14 +15,22 @@ const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 const CALC_TOTAL = 'CALC_TOTAL'
 const ITEMS_IN_CART = 'ITEMS_IN_CART'
-const GET_CATEGORY = 'GET_CATEGORY'
+const GET_USER_INFO = 'GET_USER_INFO'
+//const GET_CATEGORY = 'GET_CATEGORY'
 
 
-export function getCategory(category){
-    //console.log('category', category)
+// export function getCategory(category){
+//     //console.log('category', category)
+//     return {
+//         type: GET_CATEGORY,
+//         payload: axios.get(`/product/category/${category}`)
+//     }
+// }
+
+export function getUserInfo(){
     return {
-        type: GET_CATEGORY,
-        payload: axios.get(`/product/category/${category}`)
+        type: GET_USER_INFO,
+        payload: axios.get('auth/me')
     }
 }
 
@@ -92,7 +100,6 @@ export default function reducer( state = initialState, action){
         case CALC_TOTAL:
         let newCart = state.shoppingCart.slice();
         let newTotal = 0;
-        let toNum;
         //console.log("it get here", state.shoppingCart)
         newCart.map( (item, i) => {
             return newTotal += parseFloat(item.price)
@@ -110,10 +117,14 @@ export default function reducer( state = initialState, action){
         })
         return Object.assign({}, state, {items: itemsNumber});
 
-        case GET_CATEGORY + '_FULFILLED':
-        console.log("Get Here!")
-        console.log("CATEGORY" , action.payload.data)
-        return Object.assign ({}, state, {category: action.payload.data})
+        case GET_USER_INFO + '_FULFILLED':
+        return Object.assign({}, state, {user: action.payload.data})
+
+
+        // case GET_CATEGORY + '_FULFILLED':
+        // console.log("Get Here!")
+        // console.log("CATEGORY" , action.payload.data)
+        // return Object.assign ({}, state, {category: action.payload.data})
 
 
         default:

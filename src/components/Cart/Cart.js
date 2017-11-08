@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 import { removeFromCart, calculateTotal, cartItems } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout'
-//import stripe from './stripeKey'
 import axios from 'axios'
 import './../Product/ProductDetail.css'
 import './Cart.css'
+import Profile from './../Profile/Profile'
+
 
 class Cart extends Component {
 
@@ -22,9 +23,9 @@ class Cart extends Component {
   onToken = (token) => {
     token.card = void 0;
     //console.log('token', token) ;
-    axios.post('api/payment', { token, amount: 100 })
+    axios.post('api/payment', { token, amount: this.props.total })
       .then(response => {
-        alert('We are in business!')
+        alert('Thank you for your purchase!')
       });
   }
 
@@ -33,7 +34,7 @@ class Cart extends Component {
       return (
         <div key={index} className='cart-item-container'>
           <div className='small-pic-div'>
-            <img className='pic2' src={item.product_image} alt='pic' />
+            <img className='pic2' id='cart-pic' src={item.product_image} alt='pic' />
           </div>
           <div className='cart-details'>
             <div className='cart-name'><p>{item.name}</p></div>
@@ -45,19 +46,22 @@ class Cart extends Component {
     })
 
     return (
+      
       <div>
         <Navbar />
         <div className='cart-page'>
           <div className='cart-main-container'>
-            {cartContent.length !== 0 ? (
+            {cartContent.length !== 0 ? 
+            (
               <div>
                 {cartContent}
                 <div className='total-div'><h1 className='total'>TOTAL: ${this.props.total}</h1></div>
                 <div className='cart-shop-pay'>
                 <Link to='/'><button className='btn1'>Continue Shopping</button></Link>
-                <div className='pay'><StripeCheckout 
+                <div className='pay'>
+                  <StripeCheckout 
                   token={this.onToken}
-                  stripeKey={process.env.STRIPE_PUB_KEY}
+                  stripeKey='pk_test_UQi4oIALAi8O57uzzZUqDhQE'
                   amount={this.props.total * 100}
                 />
                 </div>
@@ -65,7 +69,7 @@ class Cart extends Component {
               </div>
             ) : (
                 <div className='empty-cart'>
-                  <div className='empty-message'><h3>Your Cart is empty ...</h3></div>
+                  <div className='empty-message '><h3>Your Cart is empty ...</h3></div>
                   <div ><Link to='/'><button className='btn1'>Go Shopping</button></Link></div>
                 </div>
               )}

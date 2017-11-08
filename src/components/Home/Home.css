@@ -16,6 +16,11 @@
     padding: 30px;
     border-radius: 10px;
 }
+.notFound-message {
+    font-size: 30px;
+    font-style: italic;
+    font-family: 'Pacifico';
+}
 
 .item-container {
     width: 270px;
@@ -23,7 +28,7 @@
     padding: 10px;
     margin: 5px;
     border: 1px solid rgb(170, 147, 147);
-    background: whitesmoke;
+    background: white;
     border-radius: 10px;
 }
 .pic-container {
