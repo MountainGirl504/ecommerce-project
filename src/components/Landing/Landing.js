@@ -15,7 +15,7 @@ export default class Landing extends Component {
                 <div className='landing-pic-div'>
 
                 <div className='text-box-div'>
-                        <p className='code-text'> 30% OFF full-price styles.
+                        <p className='code-text animated bounceInRight'> 30% OFF full-price styles.
                             Online & In stores.
                             Use code GETSHOPPING.
                         </p>
@@ -29,10 +29,10 @@ export default class Landing extends Component {
                         <p className='bottom-left'>New fall essentials</p>
                         <img className='landing-pic2' src={pic2} alt="pic2" />
                     </div></Link>
-                    <div className='pic3-div'>
+                    <Link to='festive'><div className='pic3-div'>
                         <p className='bottom-left'>Festive looks we love</p>
                         <img className='landing-pic3' src={pic3} alt="pic3" />
-                    </div>
+                    </div></Link>
                 </div>
             </div>
         )

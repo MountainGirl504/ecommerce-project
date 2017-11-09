@@ -8,6 +8,7 @@ import './Navbar.css'
 
 
 
+
 class Navbar extends Component {
     constructor(props){
         super(props)
@@ -48,7 +49,7 @@ class Navbar extends Component {
                         <div className='nav-login-div'>
                             {this.props.userData.user_name ?
                             (<div className='hello-logout-div'>
-                                <div className='hello-message'>Hello, {this.props.userData.user_name}!</div>
+                                <div className='hello-message animated pulse'>Hello, {this.props.userData.user_name}!</div>
                                 <div className='nav-logout' ><a href='http://localhost:5050/auth/logout' style={{ color: 'lavenderblush' }}>Logout</a></div>
                             </div>
                             ) :
@@ -59,13 +60,13 @@ class Navbar extends Component {
 
                         <div className='shop-div'>
                             <Link to='/cart'><div className='bag-img'><img src={bag2} alt="" className='bag' /></div></Link>
-                            <div className='num-item'>({this.props.items})</div>
-                            <div className='num-total'>${this.props.total}</div>
+                            <div className='num-item animated'>({this.props.items})</div>
+                            <div className='num-total animated'>${this.props.total}</div>
                         </div>
                       
                     </div>
 
-                    <div className='navbar'>
+                    <div className='navbar animated slideInDown'>
                         <Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='shop-div'>Home</div></Link>
                         <Link to='/product/category/woman' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='women-div' style={{ textDecoration: 'none' }}>Women</div></Link>
                         <Link to='/product/category/men' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='men-div'>Men</div></Link>

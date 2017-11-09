@@ -3,7 +3,7 @@ import axios from 'axios'
 import Navbar from './../Navbar/Navbar'
 import './Home.css'
 import { Link } from 'react-router-dom'
-import {addToCart,calculateTotal, cartItems } from './../../ducks/reducer'
+import {addToCart } from './../../ducks/reducer'
 import {connect} from 'react-redux'
 
 
@@ -30,6 +30,7 @@ class Category extends Component {
                     let category = item.category.toLowerCase();
                     return category.includes(input)
                 })
+                
                 this.setState({
                     filteredList: filteredItems
                 })

@@ -17,53 +17,58 @@ class Search extends Component {
     }
   }
   componentWillMount() {
-    // axios.get('/product/all')
-    //   .then(res => {
-    //     this.setState({
-    //       allProducts: res.data
-    //     })
-        let filteredItems = this.props.product.filter((item, i) => {
+    axios.get('/product/all')
+      .then(res => {
+        // console.log(res.data)
+        this.setState({
+          allProducts: res.data
+        })
+        let filteredItems = this.state.allProducts.filter((item, i) => {
           let input = this.props.match.params.searchItem.toLowerCase();
           let name = item.name.toLowerCase();
           return name.includes(input)
         })
+        
         this.setState({
           filteredList: filteredItems
         })
-      //})
+      })
   }
 
 
   render() {
-
-    let filtered = this.state.filteredList.map((item, i) => {
-      if (this.state.allProducts) {
-        return (
-          <div className='item-container' key={i}>
-            <div className='pic-container'><Link to={`/productDetails/${item.id}`}>
-              <img className='main-pic' src={item.product_image} alt='main-pic' /></Link>
-            </div>
-            <div className='item-name'>{item.name}</div>
-            <div className='price-btn-div'>
-              <div className='price'>${item.price}</div>
-              <div className='btn-div'>
-                <button className='btn'
-                  onClick={() => this.props.addToCart(item.id)}>Add to Cart
-                </button>
+    let filtered;
+    if(this.state.filteredList){
+       filtered = this.state.filteredList.map((item, i) => {
+        if (this.state.allProducts) {
+          return (
+            <div className='item-container'>
+              <div className='pic-container'><Link to={`/productDetails/${item.id}`}>
+                <img className='main-pic' src={item.product_image} alt='main-pic' /></Link>
+              </div>
+              <div className='item-name'>{item.name}</div>
+              <div className='price-btn-div'>
+                <div className='price'>${item.price}</div>
+                <div className='btn-div'>
+                  <button className='btn'
+                    onClick={() => this.props.addToCart(item.id)}>Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      } 
-    })
-
+          )
+        } 
+      })
+    }else{
+      filtered = <div>waiting......</div> 
+    }
     return (
       <div>
         <Navbar />
         <div className='home-page'>
           <div className='main-container'>
-            {filtered.length ? 
-              {filtered} 
+            {filtered.length > 0 ? 
+              filtered 
               : <div className='notFound-message empty-cart'>Nothing Found</div>
             }
           </div>

@@ -7,7 +7,6 @@ import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
 import './../Product/ProductDetail.css'
 import './Cart.css'
-import Profile from './../Profile/Profile'
 
 
 class Cart extends Component {
@@ -37,8 +36,8 @@ class Cart extends Component {
             <img className='pic2' id='cart-pic' src={item.product_image} alt='pic' />
           </div>
           <div className='cart-details'>
-            <div className='cart-name'><p>{item.name}</p></div>
-            <div className='cart-price' id='price'><p>${item.price}</p></div>
+            <div className='cart-name'>{item.name}</div>
+            <div className='cart-price' id='price'>${item.price}</div>
           </div>
             <div className='cart-btn '><button className='cart-btn1' onClick={() => this.props.removeFromCart(index)}>X Remove</button></div>
           </div>

@@ -104,8 +104,8 @@
  /*** SHOP ***/
  .shop-div {
    display: flex;
-   width: 100px;
-   justify-content: flex-end;
+   width: 150px;
+   justify-content: flex-start;
    align-items: center;
    /* border: 1px solid white; */
    margin-right: 32px;
@@ -116,20 +116,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid white; */
  }
  .num-item {
-    width: 25px;
+    width: 35px;
     height: 5vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    /* border: 1px solid white; */
  }
  .num-total {
-    width: 30px;
+    width: 50px;
     height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid white; */
  }
  /*** CATEGORIES ***/
  .navbar {
@@ -143,4 +146,21 @@
     font-size: 19px;
     color: white;
  }
-
+ .shop-div:hover {
+   color: orange;
+ }
+.women-div:hover {
+  color: orange;
+}
+.men-div:hover {
+  color: orange;
+}
+.boys-div:hover {
+  color: orange;
+}
+.girls-div:hover {
+  color: orange;
+}
+.cart-div:hover {
+  color:orange;
+}

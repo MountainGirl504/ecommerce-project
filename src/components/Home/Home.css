@@ -1,15 +1,15 @@
 
 .home-page {
-
+    background: #ecedf8;
     display: flex;
     justify-content: center;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
  .main-container {
-    width: 1300px;
+    width: 1290px;
     height: 100%;
-    background: snow;
+    background: rgb(228, 228, 228);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
