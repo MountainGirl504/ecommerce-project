@@ -7,8 +7,10 @@ const express = require ('express'),
     Auth0Strategy = require ('passport-auth0'),
     massive = require ('massive'),
     controller = require ('./../Controllers/Product_controller.js'),
-    stripe = require ('stripe')(process.env.STRIPE_SECRET_KEY)    
+    stripe = require ('stripe')(process.env.STRIPE_SECRET_KEY),
+    const path = require('path')    
 
+app.use( express.static( `${__dirname}/../build` ) );
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -125,6 +127,11 @@ app.get('/product/all', controller.getAllProducts);
 app.get('/product/:id', controller.productInfo);
 app.delete('/product/:id', controller.deleteItem);
 //app.get('/product/:category', controller.byCategory)
+
+
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 const PORT = 5050;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
