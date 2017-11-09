@@ -10,8 +10,9 @@ const express = require ('express'),
     stripe = require ('stripe')(process.env.STRIPE_SECRET_KEY),
     path = require('path')    
 
-app.use( express.static( `${__dirname}/../build` ) );
+
 const app = express();
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(bodyParser.json());
 app.use(cors());
 
