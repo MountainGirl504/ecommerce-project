@@ -106,7 +106,7 @@ app.post('/api/payment', function (req, res, next) {
 //========== USER ENDPOINTS==========//
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/',
+    successRedirect: process.env.LOGIN_SUCCESS_REDIRECT,
     failureRedirect: '/auth'
 }));
 app.get('/auth/me', function(req,res){

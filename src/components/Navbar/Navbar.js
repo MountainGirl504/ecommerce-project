@@ -50,7 +50,7 @@ class Navbar extends Component {
                             {this.props.userData.user_name ?
                             (<div className='hello-logout-div'>
                                 <div className='hello-message animated pulse'>Hello, {this.props.userData.user_name}!</div>
-                                <div className='nav-logout' ><a href='http://localhost:5050/auth/logout' style={{ color: 'lavenderblush' }}>Logout</a></div>
+                                <div className='nav-logout' ><a href={process.env.REACT_APP_LOGOUT} style={{ color: 'lavenderblush' }}>Logout</a></div>
                             </div>
                             ) :
                             <div className='nav-login' ><a href={process.env.REACT_APP_LOGIN} style={{ color: 'lavenderblush' }}> Login / Register </a></div>
