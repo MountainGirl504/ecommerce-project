@@ -8,7 +8,7 @@ const express = require ('express'),
     massive = require ('massive'),
     controller = require ('./../Controllers/Product_controller.js'),
     stripe = require ('stripe')(process.env.STRIPE_SECRET_KEY),
-    const path = require('path')    
+    path = require('path')    
 
 app.use( express.static( `${__dirname}/../build` ) );
 const app = express();
