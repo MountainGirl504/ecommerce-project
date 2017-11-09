@@ -20,7 +20,7 @@ export default class Landing extends Component {
                             Use code GETSHOPPING.
                         </p>
                     </div>
-
+                    <div className='all-pic-wrapper'>
                     <Link to='/holiday'><div className='pic1-div'>
                         <p className='bottom-left'>Need holiday outfits?</p>
                         <img className='landing-pic1' src={pic1} alt="pic1" />
@@ -33,6 +33,7 @@ export default class Landing extends Component {
                         <p className='bottom-left'>Festive looks we love</p>
                         <img className='landing-pic3' src={pic3} alt="pic3" />
                     </div></Link>
+                    </div>
                 </div>
             </div>
         )

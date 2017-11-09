@@ -1,4 +1,5 @@
 .landing-page {
+    height: 85vh;
     display: flex;
     justify-content: center;
     background: #ecedf8;
@@ -27,6 +28,14 @@
     line-height: 50px;
 }
 
+/*** had to wrap 3 landing pics and give this div a height
+so they don't move surrounding elements ***/
+.all-pic-wrapper {
+    height: 600px;
+    display: flex;
+
+}
+
 img {
     width: 300px;
     height: 400px;
@@ -43,26 +52,44 @@ p {
 .pic1-div {
     position: relative;
     margin-right: 20px;
+    transform: scale(1);
+    transition-timing-function: ease-out;
+    transition-duration: .5s;
 
 }
-.pic1-div:hover{
-    border: 3px solid red;
+.pic1-div:hover {
+    /* border: 1px solid green; */
+    -webkit-transform: scale(1.2);
+    transform: scale (1.2);
+    margin: 35px;
 }
 
 .pic2-div {
     position: relative;
     margin-right: 20px;
-    /* border: 1px solid red; */
+    transform: scale(1);
+    transition-timing-function: ease-out;
+    transition-duration: .5s;
+    
 }
-.pic2-div:hover img {
-    border: 3px solid red;
+.pic2-div:hover {
+    /* border: 1px solid red; */
+    -webkit-transform: scale(1.2);
+    transform: scale (1.2);
+    margin: 35px;
 }
 .pic3-div {
     position: relative;
+    transform: scale(1);
+    transition-timing-function: ease-out;
+    transition-duration: .5s;
     /* border: 1px solid red; */
 }
-.pic3-div:hover img {
-    border: 3px solid red;
+.pic3-div:hover {
+    /* border: 1px solid red; */
+    -webkit-transform: scale(1.2);
+    transform: scale (1.2);
+    margin: 35px;
 }
 .bottom-left {
     position: absolute;
