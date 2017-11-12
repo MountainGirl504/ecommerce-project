@@ -94,7 +94,7 @@ app.post('/api/payment', function (req, res, next) {
         amount: convertedAmt, //in cents
         currency: 'usd',
         source: req.body.token.id,
-        description: 'Test charge from Ecommerce app'
+        description: 'Test charge from GCrew app'
     }, function (err, charge) {
         if (err) return res.sendStatus(500)
         return res.sendStatus(200);

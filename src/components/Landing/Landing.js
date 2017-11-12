@@ -6,6 +6,7 @@ import './Landing.css'
 import {Link } from 'react-router-dom'
 
 
+
 export default class Landing extends Component {
 
     render() {
@@ -23,15 +24,21 @@ export default class Landing extends Component {
                     <div className='all-pic-wrapper'>
                     <Link to='/holiday'><div className='pic1-div'>
                         <p className='bottom-left'>Need holiday outfits?</p>
-                        <img className='landing-pic1' src={pic1} alt="pic1" />
+                        <div className='landing-pic'>
+                            {/* <img  src={pic1} alt="pic1" /> */}
+                        </div>
                     </div></Link>
                     <Link to='/fallstyle'><div className='pic2-div'>
                         <p className='bottom-left'>New fall essentials</p>
-                        <img className='landing-pic2' src={pic2} alt="pic2" />
+                        <div className='landing-pic'>
+                            {/* <img  src={pic2} alt="pic2" /> */}
+                            </div>
                     </div></Link>
                     <Link to='festive'><div className='pic3-div'>
                         <p className='bottom-left'>Festive looks we love</p>
-                        <img className='landing-pic3' src={pic3} alt="pic3" />
+                        <div className='landing-pic'>
+                            {/* <img  src={pic3} alt="pic3" /> */}
+                            </div>
                     </div></Link>
                     </div>
                 </div>

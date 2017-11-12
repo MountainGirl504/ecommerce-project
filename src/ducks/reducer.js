@@ -1,3 +1,4 @@
+import React from 'react'
 import axios from 'axios';
 
 
@@ -119,6 +120,8 @@ export default function reducer( state = initialState, action){
 
         case GET_USER_INFO + '_FULFILLED':
         return Object.assign({}, state, {user: action.payload.data})
+        
+        
 
 
         // case GET_CATEGORY + '_FULFILLED':

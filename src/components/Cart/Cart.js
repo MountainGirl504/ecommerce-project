@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Navbar from './../Navbar/Navbar'
 import { connect } from 'react-redux'
-import { removeFromCart, calculateTotal, cartItems } from './../../ducks/reducer'
+import { removeFromCart, calculateTotal, cartItems, getUserInfo } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
 import './../Product/ProductDetail.css'
 import './Cart.css'
+import Footer from './../Footer/Footer'
 
 
 class Cart extends Component {
@@ -31,7 +32,7 @@ class Cart extends Component {
   render() {
     let cartContent = this.props.shoppingCart.map((item, index) => {
       return (
-        <div key={index} className='cart-item-container'>
+        <div key={index} className='cart-item-container '>
           <div className='small-pic-div'>
             <img className='pic2' id='cart-pic' src={item.product_image} alt='pic' />
           </div>
@@ -39,7 +40,7 @@ class Cart extends Component {
             <div className='cart-name'>{item.name}</div>
             <div className='cart-price' id='price'>${item.price}</div>
           </div>
-            <div className='cart-btn '><button className='cart-btn1' onClick={() => this.props.removeFromCart(index)}>X Remove</button></div>
+            <div className='cart-btn'><button className='cart-btn1 ' onClick={() => this.props.removeFromCart(index)}>X Remove</button></div>
           </div>
       )
     })
@@ -57,13 +58,17 @@ class Cart extends Component {
                 <div className='total-div'><h1 className='total'>TOTAL: ${this.props.total}</h1></div>
                 <div className='cart-shop-pay'>
                 <Link to='/'><button className='btn1'>Continue Shopping</button></Link>
+               
+               
                 <div className='pay'>
                   <StripeCheckout 
                   token={this.onToken}
                   stripeKey='pk_test_UQi4oIALAi8O57uzzZUqDhQE'
-                  amount={this.props.total * 100}
-                />
+                  amount={this.props.total * 100}/>
                 </div>
+                
+                
+                
                 </div>
               </div>
             ) : (
@@ -72,8 +77,10 @@ class Cart extends Component {
                   <div ><Link to='/'><button className='btn1'>Go Shopping</button></Link></div>
                 </div>
               )}
+              
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }
@@ -83,7 +90,8 @@ function mapStateToProps(state) {
   return {
     shoppingCart: state.shoppingCart,
     total: state.total,
-    items: state.items
+    items: state.items, 
+    user: state.user
   }
 }
-export default connect(mapStateToProps, { removeFromCart, calculateTotal, cartItems })(Cart);
+export default connect(mapStateToProps, { removeFromCart, calculateTotal, cartItems, getUserInfo })(Cart);

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 //import SmallCart from './../Cart/SmallCart'
 import Navbar from './../Navbar/Navbar'
 import './ProductDetail.css'
+import Footer from './../Footer/Footer'
 
 
 
@@ -49,6 +50,7 @@ class ProductDetails extends Component {
             {productInfo}
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }

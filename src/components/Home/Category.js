@@ -3,8 +3,9 @@ import axios from 'axios'
 import Navbar from './../Navbar/Navbar'
 import './Home.css'
 import { Link } from 'react-router-dom'
-import {addToCart } from './../../ducks/reducer'
+import {addToCart, calculateTotal } from './../../ducks/reducer'
 import {connect} from 'react-redux'
+import Footer from './../Footer/Footer'
 
 
 class Category extends Component {
@@ -16,6 +17,27 @@ class Category extends Component {
             allProducts: [],
             filteredList: []
         }
+    }
+    
+    componentWillReceiveProps(nextProps) {
+        axios.get('/product/all')
+            .then(res => {
+
+                this.setState({
+                    allProducts: res.data
+                })
+                //console.log(this.state.allProducts)
+                let filteredItems = this.state.allProducts.filter((item, i) => {
+                    let input = nextProps.match.params.category.toLowerCase();
+                    let category = item.category.toLowerCase();
+                    return category.includes(input)
+                })
+                console.log(filteredItems);
+                
+                this.setState({
+                    filteredList: filteredItems
+                })
+            })
     }
     componentWillMount() {
         axios.get('/product/all')
@@ -30,6 +52,7 @@ class Category extends Component {
                     let category = item.category.toLowerCase();
                     return category.includes(input)
                 })
+                console.log(filteredItems);
                 
                 this.setState({
                     filteredList: filteredItems
@@ -41,24 +64,22 @@ class Category extends Component {
         this.props.addToCart(id)
         .then(() => {
             this.props.calculateTotal()
-            this.props.cartItems()
         })
     }
-
     render() {
 
         let filtered = this.state.filteredList.map((item, i) => {
             if (this.state.allProducts) {
                 //console.log("Get here too")
                 return (
-                    <div className='item-container' key={item.id} >
+                    <div className='item-container animated fadeIn' key={item.id}  >
                     <div className='pic-container' ><Link to={`/productDetails/${item.id}`}>
                         <img className='main-pic' src={item.product_image} alt='main-pic' /></Link></div>
                     <div className='item-name'>{item.name}</div>
                     <div className='price-btn-div'>
                         <div className='price'>${item.price}</div>
                         <div className='btn-div'><button className='btn'
-                            onClick={() => this.props.addToCart(item.id)}>Add to Cart
+                            onClick={() => this.handleClick(item.id)}>Add to Cart
                             </button>
                         </div>
                     </div>
@@ -76,6 +97,7 @@ class Category extends Component {
                     {filtered}
                     </div>
                 </div>
+                <Footer/>
             </div>
         )
     }
@@ -87,4 +109,4 @@ function mapStateToProps(state) {
         product: state.product
     }
 }
-export default connect (mapStateToProps, {addToCart}) (Category)
+export default connect (mapStateToProps, {addToCart, calculateTotal}) (Category)

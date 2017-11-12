@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Navbar from './../Navbar/Navbar'
 import './Home.css'
 import Landing from './../Landing/Landing'
+import Footer from './../Footer/Footer'
 
 
 class Home extends Component {
@@ -44,7 +45,7 @@ class Home extends Component {
         })
 
         return (
-            <div>
+            <div className='home-page-container animated fadeIn'>
                 <Navbar />
                 <Landing/>
                 <div className='home-page'>
@@ -52,6 +53,7 @@ class Home extends Component {
                         {products}
                     </div>
                 </div>
+                <Footer/>
             </div>
         )
     }

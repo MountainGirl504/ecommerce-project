@@ -6,6 +6,7 @@ import fallStyle1 from './../../Assets/fallStyle1.jpeg'
 import fallStyle2 from './../../Assets/fallStyle2.jpeg'
 import fallStyle3 from './../../Assets/fallStyle3.jpeg'
 import { Link } from 'react-router-dom'
+import Footer from './../Footer/Footer'
 
 export default class FallStyle extends Component {
 
@@ -17,10 +18,10 @@ export default class FallStyle extends Component {
         <div className='landing-page'>
             <div className='fall-pic-div'>
             
-                        <div className='fall-text1'>NEW FALL ESSENTIALS</div>
+                        <div className='fall-text1 hello'>NEW FALL ESSENTIALS</div>
                         <div className='fall-text2'>Demin chore jackets, Polartec hoodies and Chelsea boots are just some of the go-to items you'll need this season.</div>
 
-                        <Link to='festive'><img className='fall-pic' src={fallStyle} alt=""/></Link>
+                        <div><img className='fall-pic' src={fallStyle} alt=""/></div>
             </div>       
        </div>
         <div className='fall-wrapper'>
@@ -54,6 +55,7 @@ export default class FallStyle extends Component {
 
     </div>
     </div>
+    <Footer/>
       </div>
     )
   }

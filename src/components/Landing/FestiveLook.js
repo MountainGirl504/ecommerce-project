@@ -6,6 +6,8 @@ import Festive1 from './../../Assets/Festive1.jpeg'
 import Festive2 from './../../Assets/Festive2.jpeg'
 import Festive3 from './../../Assets/Festive3.jpeg'
 import { Link } from 'react-router-dom'
+import Footer from './../Footer/Footer'
+
 
 export default class FestiveLook extends Component {
 
@@ -54,6 +56,7 @@ export default class FestiveLook extends Component {
 
     </div>
     </div>
+    <Footer/>
       </div>
     )
   }

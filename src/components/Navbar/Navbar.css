@@ -1,14 +1,17 @@
 .main-header {
-    background: black;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* background:lightgrey; */
+  /* color: white;     */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
  }
  
  .persistent-nav {
     width: 100%;
     height: 50px;
+    /* background: lightgrey; */
     background: black;
     color:white;
     position: fixed;
@@ -18,53 +21,62 @@
     justify-content: space-between;
     border-bottom: 1px solid rgb(41, 39, 39);
  }
- .name {
-    width: 20%;
+
+
+ /*** NAME-LOGO DIV ***/
+ .logo {
+    width: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: lavenderblush;
-    font-size: 3vh;
-    font-weight: 300;
-    font-family: 'Pacifico', sans-serif;
+    margin-left: 3vw;
+    /* border: 1px solid red; */
+    background-image: url('./../../Assets/THE NEW YOU1.png');
+    background-repeat: no-repeat;
  }
 
-/**** SEARCH ****/
+/**** SEARCH  DIV****/
  .search-div {
  
-   width: 40%;
+   width: 30%;
    display: flex;
    align-items: center;
    justify-content: flex-start;
-   
+   /* border: 1px solid blue; */
  }
  .input-box {
-    width: 26vw;
-    height: 2vh;;
+    width: 15vw;
+    height: 3vh;
     margin: 9px;
     border-radius: 3px;
-    font-family: Arial;
+    font-family: Nunito;
     font-size: 13px;
     font-style: italic;
     border: none;
  }
-
- .find-box {
-    width: 50%;
-    
+ .btn-find {
+   width: 3vw;
+   font-size: 1vh;
+   border: 1px solid white;
  }
 
+ /* .find-box {
+    width: 50%;
+    border: 1px solid white; 
+ } */
 
- /*** LOGIN ***/
+
+ /*** LOGIN DIV ***/
  .nav-login-div {
-    width: 230px;
-    height: 36px;
-    /* border: 1px solid yellow; */
+
+    width: 30%;
+    /* height: 2vh; */
     position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    margin-top: 9px;
+    /* margin-top: 9px; */
+    /* border: 1px solid yellow; */
  }
  .nav-login {
     padding-right: 6px;
@@ -75,69 +87,137 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     /* border: 1px dashed white; */
  }
+
  .hello-message{
-    width: 160px;
-    height: 100%;
+    
+    font-family: Nunito;
+    font-size: 16px;;
     font-style: italic;
     color: darkorange;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-top: 8px;
     /* border: 1px solid green; */
  }
+ @media (max-width: 1000px) {
+   .persistent-nav {
+     display: flex;
+    justify-content: flex-start;
+   }
+   .logo {
+     width: 35%;
+   }
+   .search-div {
+     width: 0;
+    
+   }
+   .input-box {
+     display: none;
+   }
+   .btn-find {
+     display: none;
+   }
+    .hello-message {
+      padding-top: 9px;
+      font-size: 14px;
+    }
+    .nav-login-div {
+      width: 30%;
+      font-size:10px;
+    }
+    .hello-logout-div {
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-logout {
+      font-size: 10px;
+      width: 30%;
+      display: none;
+    }
+  
+    .bag{
+      display: none;
+    }
+    .shop-div {
+      width: 50px;
+      /* display: flex;
+      justify-content: space-between; */
+      /* border: 1px solid white; */
+    }
+    .num-item {
+      /* border: 1px solid red; */
+      display: flex;
+      justify-content: flex-end;
+    }
+    .num-total {
+      /* border: 1px solid yellow; */
+      display: none;
+    }
+    .category {
+      font-size: 12px;
+    }
+ }
  .nav-logout {
-    width: 60px;
+    width: 20%;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-family: Nunito;
+    font-size: 16px;
     font-style: italic;
     /* border: 1px solid white; */
  }
 
- /*** SHOP ***/
+ /*** SHOP DIV***/
  .shop-div {
    display: flex;
-   width: 150px;
-   justify-content: flex-start;
+   width: 160px;
+   justify-content: space-around;
    align-items: center;
+   /* border: 1px solid green; */
+   margin-right: 3vw;
    /* border: 1px solid white; */
-   margin-right: 32px;
  }
  .bag {
     width: 45px;
     height: 40px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     /* border: 1px solid white; */
  }
  .num-item {
-    width: 35px;
-    height: 5vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 1px solid white; */
- }
- .num-total {
-    width: 50px;
+    width: 100%;
     height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Nunito;
+    font-size: 16px;
+    /* border: 1px solid white; */
+ }
+ .num-total {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Nunito;
+    font-size: 16px;
     /* border: 1px solid white; */
  }
  /*** CATEGORIES ***/
  .navbar {
-    width: 70%;
+    width: 100%;
     height: 40px;
     background: black;
     padding-top: 50px;
@@ -147,7 +227,12 @@
     font-size: 19px;
     color: white;
  }
- .shop-div:hover {
+.navbar:hover {
+  transform: ease-in-out;
+}
+
+
+.home-div:hover {
    color: orange;
  }
 .women-div:hover {
@@ -164,4 +249,5 @@
 }
 .cart-div:hover {
   color:orange;
-}
+} 
+

@@ -10,6 +10,7 @@ import Category from './components/Home/Category'
 import Holiday from './components/Landing/Holiday'
 import FallStyle from './components/Landing/FallStyle'
 import FestiveLook from './components/Landing/FestiveLook'
+import About from './components/Footer/About'
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route path='/holiday' component={Holiday}/>
           <Route path='/fallstyle' component={FallStyle}/>
           <Route path='/festive' component={FestiveLook}/>
+          <Route path='/about' component={About}/>
         </div>
       
     );

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { calculateTotal, cartItems, getUserInfo } from './../../ducks/reducer'
 import './Navbar.css'
+//import logo1 from './../../Assets/THE NEW YOU1.png'
 
 
 
@@ -35,12 +36,13 @@ class Navbar extends Component {
             <div>
                 <div className='main-header'>
                     <div className='persistent-nav'>
-                        <div className='name' ><Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}>buy stuff store</Link></div> 
+                    <Link to='/' className='logo'></Link>
+
 
                         <div className='search-div'>
-                            <div ><input className='input-box' type='text'  placeholder='Search designers, products and more...'
+                            <div ><input className='input-box' type='text'  placeholder='Search...'
                                 onChange={this.handleChange}/></div>
-                            <div className='find-box'><Link to={`/search/${this.state.userInput}`} onClick={this.props.find} style={{  color: 'lavenderblush' }}> FIND
+                            <div className='find-box'><Link to={`/search/${this.state.userInput}`} onSubmit={this.props.find} style={{  color: 'lavenderblush' }}><button className='btn-find' type='submit'>FIND</button> 
                             </Link></div> 
                         </div>  
 
@@ -60,19 +62,24 @@ class Navbar extends Component {
 
                         <div className='shop-div'>
                             <Link to='/cart'><div className='bag-img'><img src={bag2} alt="" className='bag' /></div></Link>
-                            <div className='num-item animated'>({this.props.items})</div>
-                            <div className='num-total animated'>${this.props.total}</div>
+                            <div className='num-item'>({this.props.shoppingCart.length})</div>
+                            <div className='num-total'>${this.props.total}</div>
                         </div>
                       
                     </div>
 
                     <div className='navbar animated slideInDown'>
-                        <Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='shop-div'>Home</div></Link>
-                        <Link to='/product/category/woman' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='women-div' style={{ textDecoration: 'none' }}>Women</div></Link>
-                        <Link to='/product/category/men' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='men-div'>Men</div></Link>
-                        <Link to='/product/category/boys' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='boys-div' style={{ textDecoration: 'none' }}>Boys</div></Link>
-                        <Link to='/product/category/girls' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='girls-div' style={{ textDecoration: 'none', color: 'lavenderblush' }}>Girls</div></Link>
-                        <Link to='/cart' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='cart-div' >Cart</div></Link>
+                        <Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='home-div category'>Home</div></Link>
+
+                        <Link to='/product/category/woman' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='women-div category' style={{ textDecoration: 'none' }}>Women</div></Link>
+
+                        <Link to='/product/category/men' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='men-div category'>Men</div></Link>
+
+                        <Link to='/product/category/boys' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='boys-div category' style={{ textDecoration: 'none' }}>Boys</div></Link>
+
+                        <Link to='/product/category/girls' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='girls-div category'>Girls</div></Link>
+                        
+                        <Link to='/cart' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='cart-div category' >Cart</div></Link>
                     </div>
                 </div>
             </div>
@@ -81,6 +88,7 @@ class Navbar extends Component {
 }
 function mapStateToProps(state) {
     return {
+        shoppingCart: state.shoppingCart,
         total: state.total,
         items: state.items, 
         userData: state.user

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import './../Home/Home.css'
 import { getAllProducts, addToCart, calculateTotal, cartItems } from './../../ducks/reducer'
 import { connect } from 'react-redux'
+import Footer from './../Footer/Footer'
 
 
 class Search extends Component {
@@ -15,6 +16,7 @@ class Search extends Component {
       allProducts: [],
       filteredList: []
     }
+    this.handleClick = this.handleClick.bind(this)
   }
   componentWillMount() {
     axios.get('/product/all')
@@ -34,12 +36,15 @@ class Search extends Component {
         })
       })
   }
-
+  handleClick(id) {           //BUY button on the Home page
+    this.props.addToCart(id)
+    .then(() => {
+        this.props.calculateTotal()
+    })
+}
 
   render() {
-    let filtered;
-    if(this.state.filteredList){
-       filtered = this.state.filteredList.map((item, i) => {
+       let filtered = this.state.filteredList.map((item, i) => {
         if (this.state.allProducts) {
           return (
             <div className='item-container'>
@@ -51,7 +56,7 @@ class Search extends Component {
                 <div className='price'>${item.price}</div>
                 <div className='btn-div'>
                   <button className='btn'
-                    onClick={() => this.props.addToCart(item.id)}>Add to Cart
+                    onClick={() => this.handleClick(item.id)}>Add to Cart
                   </button>
                 </div>
               </div>
@@ -59,20 +64,20 @@ class Search extends Component {
           )
         } 
       })
-    }else{
-      filtered = <div>waiting......</div> 
-    }
+
     return (
-      <div>
+      <div className='home-page-container animated fadeIn'>
         <Navbar />
         <div className='home-page'>
-          <div className='main-container'>
+          <div>
             {filtered.length > 0 ? 
-              filtered 
-              : <div className='notFound-message empty-cart'>Nothing Found</div>
+            (<div className='search-results'>Search results: {filtered.length}
+              <div className='main-container'>{filtered}</div></div>)
+              : <div className='notFound-message empty-cart'> Nothing found, please try again later...</div>
             }
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }

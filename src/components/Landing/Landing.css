@@ -1,39 +1,75 @@
 .landing-page {
-    height: 85vh;
     display: flex;
     justify-content: center;
     background: #ecedf8;
-        /* border: 2px dashed black; */
+     /* border: 2px dashed black; */
 }
 .landing-pic-div {
     width: 1300px;
+    /* height: 100%; */
+    height: 600px;
+    overflow: hidden;
     display: flex;
-    background: rgb(228, 228, 228);    justify-content: center;
+    background: rgb(228, 228, 228);    
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 1;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
+    /* border: 1px solid red; */
+}
+.landing-pic {
+    position: relative;
+    z-index: -1;
+    transform: scale(1);
+    /* transition-timing-function: ease-out; */
+    /* transition-duration: .5s; */
+}
+.landing-pic:hover {
+    position: relative;
+    transform: scale(1.2);
+
 }
 .text-box-div {
     width: 100%;
+
+    display: flex;
+    justify-content: center;
     /* border: 1px solid green; */
 }
 
 .code-text {
     text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
     letter-spacing: 1.5px;
     font-size: 30px;
     background: #f26650;
     line-height: 50px;
+    border-radius: 3px;
 }
 
 /*** had to wrap 3 landing pics and give this div a height
 so they don't move surrounding elements ***/
 .all-pic-wrapper {
-    height: 600px;
+    width: 1000px;
+    max-height: 400px;
     display: flex;
-
+    justify-content: space-around;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid blue; */
+}
+@media(max-width: 1000px){
+    .landing-pic-div{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    
 }
 
 img {
@@ -50,26 +86,38 @@ p {
     font-style: italic;
 }
 .pic1-div {
-    position: relative;
-    margin-right: 20px;
-    transform: scale(1);
+    background-image: url('./../../Assets/FrontPic1.jpeg');
+    background-size: cover;
+    width: 300px;
+    height: 400px;
     transition-timing-function: ease-out;
     transition-duration: .5s;
-
+    
 }
 .pic1-div:hover {
     /* border: 1px solid green; */
     -webkit-transform: scale(1.2);
     transform: scale (1.2);
     margin: 35px;
-}
+    position: relative;
+    z-index: 2;
+} 
+
 
 .pic2-div {
-    position: relative;
+    background-image: url('./../../Assets/FrontPic2.jpeg');
+    background-size: cover;
+    width: 300px;
+    height: 400px;
+    transition-timing-function: ease-out;
+    transition-duration: .5s;
+
+
+    /* position: relative;
     margin-right: 20px;
     transform: scale(1);
     transition-timing-function: ease-out;
-    transition-duration: .5s;
+    transition-duration: .5s; */
     
 }
 .pic2-div:hover {
@@ -79,10 +127,19 @@ p {
     margin: 35px;
 }
 .pic3-div {
-    position: relative;
-    transform: scale(1);
+
+    background-image: url('./../../Assets/FrontPic3.jpeg');
+    background-size: cover;
+    width: 300px;
+    height: 400px;
     transition-timing-function: ease-out;
     transition-duration: .5s;
+
+
+    /* position: relative;
+    transform: scale(1);
+    transition-timing-function: ease-out;
+    transition-duration: .5s; */
     /* border: 1px solid red; */
 }
 .pic3-div:hover {
@@ -92,9 +149,15 @@ p {
     margin: 35px;
 }
 .bottom-left {
-    position: absolute;
+    position: relative;
+    z-index: 1;
     bottom: 1px;    
     left: 10px;
+    padding-top: 110%;
+   
+}
+ a {
+    text-decoration: none;
 }
 
 /*** HOLIDAY LOOK PAGE ***/
@@ -150,6 +213,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     /* border: 1px solid red; */
     padding: 30px;
     /* background: lightgreen; */
@@ -198,6 +262,7 @@ p {
     display: flex;
     justify-content: center;
     justify-content: space-around;
+    flex-wrap: wrap;
     /* border: 3px dashed black; */
 }
 .holiday-page-text{
@@ -211,13 +276,93 @@ p {
     /* background: lightgrey; */
 }
 
+@media (max-width: 1000px){
+ 
+    .holiday-pics-div{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* border: 3px solid green; */
+
+    }
+    .holiday-pic-div{
+        width: 50%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: static;
+    }
+    .text-center1, .text-center2, .text-center3 {
+        width: 70%;
+        font-size: 3vh;    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid blue; */
+        top: 20%;
+        left: 15%;
+    }
+    .text-center2 {
+        top:25%;
+    }
+    .text-center3{
+        width: 75%;
+        top: 30%;
+        left: 15%;
+    }
+
+    .holiday-pic{
+      display: none;
+    }
+  
+    .holiday-look-div {
+        /* background: yellow; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      
+    }
+    .hol-look{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* border: 1px solid blue; */
+    }
+    .shop-look-text{
+        width: 100%;
+        height: 130px;
+        font-size: 24px;
+        /* border: 1px solid red; */
+
+    }
+    .align-text-div{
+        width: 100%;
+        /* border: 1px solid purple; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .holiday-page-text{
+        width: 250px;
+        /* border: 1px dashed; */
+    }
+    .look{
+      width: 250px;
+      height: 250px;
+    }
+}
+
+
 /*** FALL ESSENTIALS ***/
 .fall-pic-div {
     width: 1450px;
     height: 600px;
     position: relative;
     background: rgb(248, 241, 243);
-   
    
 }
 .fall-pic {
@@ -276,11 +421,8 @@ p {
     display: flex;
     justify-content: center;
     background: rgb(238, 219, 219);
-    border-radius: 5px;
-    
+    border-radius: 5px;   
 }
-
-
 .fall-look {
     
     height: 400px;
@@ -290,7 +432,7 @@ p {
     border-radius: 5px;
 }
 
-/*** 2 TEXTS***/
+/*** 2 texts***/
 .hold-text {
     width: 50%;
     display: flex;
@@ -319,6 +461,78 @@ p {
     font-style: italic;
     /* background: grey; */
 }
+
+@media(max-width: 1000px) {
+    .fall-pic{
+        display: none;
+    }
+    .fall-pic-div{
+        width: 85%;
+        height: 300px;
+        /* border: 1px solid red; */
+    }
+    .fall-wrapper{
+        width: 100%;
+        height: 100%;
+        /* border: 1px solid blue; */
+    }
+    .fall-text1{
+        width: 200px;
+        /* border: 1px solid red; */
+        font-size: 25px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        top: 10%;
+        left: 15%;
+    }
+    .fall-text2{
+        width: 300px;
+        font-size: 18px;
+        /* border: 1px solid blue; */
+        color: black;
+        display: flex;
+        justify-content: center;
+        top: 35%;
+        left: 10%;
+    }
+    .fall-look-main-div{
+        width: 100%;
+        /* height: 100%; */
+        /* border: 3px solid green; */
+    }
+    .fall-look-div{
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        /* border: 1px solid orange; */
+    }
+    .hold-text{
+        width: 90%;
+        margin-bottom: 10px;
+        /* border: 1px dashed; */
+    }
+    .fall-text{
+        font-size: 20px;
+    }
+    .text-fall2{
+        font-size: 14px;
+    }
+    .fall-look{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid blue; */
+    }
+    #mens-pic{
+        /* border: 1px solid orange; */
+        width: 200px;
+        height: 250px;
+    }
+}
+
+
 
 /*** FESTIVE PAGE ***/
 .festive-pic {
@@ -358,4 +572,29 @@ p {
 }
 .festive-div {
     background: rgb(192, 235, 238);
+}
+@media(max-width: 1000px) {
+    .festive-pic{
+        display: none;
+    }
+    .fall-text1{
+        width: 200px;
+        /* border: 1px solid red; */
+        font-size: 25px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        top: 10%;
+        left: 15%;
+    }
+    .fall-text2{
+        width: 300px;
+        font-size: 18px;
+        /* border: 1px solid blue; */
+        color: black;
+        display: flex;
+        justify-content: center;
+        top: 35%;
+        left: 10%;
+    }
 }
