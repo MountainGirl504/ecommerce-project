@@ -33,17 +33,17 @@ export default class Footer extends Component {
                 </ul>
             </div>
         </div>
-        <div className='col-connect'>
-            <div>
-                <ul>
-                    <li><a href='https://www.facebook.com/jcrew/'>
-                    <FontAwesome className='icon' name='facebook-square' size='2x'/>Facebook</a></li>
-                    <li><a href='https://twitter.com/jcrew?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'><FontAwesome className='icon' name='twitter' size='2x'/>Twitter</a></li>
-                    <li><a href='https://www.instagram.com/jcrew/?hl=en'><FontAwesome className='icon' name='instagram' size='2x'/>Instagram</a></li>
-                    <li><a href='https://github.com/MountainGirl504'><FontAwesome className='icon' name='github' size='2x'/>GitHub</a></li>
-                </ul>
-            </div>
         </div>
+
+        
+        <div className='col-connect'>
+                <ul id='connect'>
+                    <li><a href='https://www.facebook.com/jcrew/'>
+                    <FontAwesome className='icon' name='facebook-square' size='2x'/></a></li>
+                    <li><a href='https://twitter.com/jcrew?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'><FontAwesome className='icon' name='twitter' size='2x'/></a></li>
+                    <li><a href='https://www.instagram.com/jcrew/?hl=en'><FontAwesome className='icon' name='instagram' size='2x'/></a></li>
+                    <li><a href='https://github.com/MountainGirl504/ecommerce-project'><FontAwesome className='icon' name='github' size='2x'/></a></li>
+                </ul>
         </div>
       </div>
       
