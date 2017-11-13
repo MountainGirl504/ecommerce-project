@@ -17,19 +17,19 @@ export default class Footer extends Component {
         </div>
         <div className='col-company'>
             <div>
-                <ul>
-                    <li><Link to='/about'>About</Link></li>
-                    <li><a href='https://www.jcrew.com/aboutus/jcrew.jsp?sidecar=true'>Our Story</a></li>
-                    <li><a href='https://jobs.jcrew.com/'>Careers</a></li>
+                <ul >
+                    <li ><Link to='/about' id='white'>About</Link></li>
+                    <li><a href='https://www.jcrew.com/aboutus/jcrew.jsp?sidecar=true' id='white'>Our Story</a></li>
+                    <li><a href='https://jobs.jcrew.com/' id='white'>Careers</a></li>
                 </ul>
             </div>
         </div>
         <div className='col-customer'>
             <div>
                 <ul>
-                    <li><a href='https://www.linkedin.com/in/natalia-calt-21598217/'>Contact the developer</a></li>
-                    <li><a href='https://www.jcrew.com/help/registration_qa.jsp?sidecar=true'>FAQ</a></li>
-                    <li><a href='https://www.jcrew.com/help/returns_exchanges.jsp?sidecar=true'>Return Policy</a></li>
+                    <li><a href='https://www.linkedin.com/in/natalia-calt-21598217/'id='white'>Contact the developer</a></li>
+                    <li><a href='https://www.jcrew.com/help/registration_qa.jsp?sidecar=true' id='white'>FAQ</a></li>
+                    <li><a href='https://www.jcrew.com/help/returns_exchanges.jsp?sidecar=true' id='white'>Return Policy</a></li>
                 </ul>
             </div>
         </div>

@@ -15,9 +15,9 @@ export default class Holiday extends Component {
           <Navbar/>
           <div className='landing-page'>
             <div className='holiday-pic-div'>
-                <div><h1 className='text-center1'>HOLIDAY</h1></div>
-                <div><h2 className='text-center2'>OUTFIT IDEAS</h2></div>
-                <div><h3 className='text-center3'>For whatever you have planned</h3></div>
+                <div><h1 className='text-center1 animated slideInLeft'>HOLIDAY</h1></div>
+                <div><h2 className='text-center2 animated slideInRight'>OUTFIT IDEAS</h2></div>
+                <div><h3 className='text-center3 animated slideInLeft'>For whatever you have planned</h3></div>
                 <img className='holiday-pic' src={holidayPic} alt=""/>
             </div>
           </div>

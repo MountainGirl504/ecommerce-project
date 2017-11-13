@@ -11,7 +11,6 @@
  .persistent-nav {
     width: 100%;
     height: 50px;
-    /* background: lightgrey; */
     background: black;
     color:white;
     position: fixed;
@@ -20,7 +19,10 @@
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px solid rgb(41, 39, 39);
+    /* border: 3px dashed red; */
  }
+
+
 
 
  /*** NAME-LOGO DIV ***/
@@ -55,8 +57,11 @@
     border: none;
  }
  .btn-find {
-   width: 3vw;
-   font-size: 1vh;
+   width: 4vw;
+   height: 2.5vh;
+   font-family: Nunito;
+   font-size: 13px;
+   font-style: italic;
    border: 1px solid white;
  }
 
@@ -108,16 +113,18 @@
  }
  @media (max-width: 1000px) {
    .persistent-nav {
+     /* width: 100%; */
      display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
    }
    .logo {
      width: 35%;
    }
-   .search-div {
+   /* .search-div {
      width: 0;
     
-   }
+   } */
    .input-box {
      display: none;
    }
@@ -220,34 +227,56 @@
     width: 100%;
     height: 40px;
     background: black;
-    padding-top: 50px;
+    padding-top: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     font-size: 19px;
     color: white;
  }
-.navbar:hover {
-  transform: ease-in-out;
-}
-
-
-.home-div:hover {
-   color: orange;
+ .navbar:hover {
+    animation-name: slideInDown;
  }
-.women-div:hover {
-  color: orange;
+.slideInDown {
+    animation-delay: 0.7s;
+ }
+ .inner-navbar{
+   width: 70%;
+   display: flex;
+   justify-content: space-around;
+ }
+
+ /*** border on category on hover ***/
+ .category{
+   color: white;
+   text-decoration: none;
+   position: relative;
+   z-index:0;
+ }
+.category span:before,
+.category span:after {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: white;
+  content: '';
+  opacity: 0;
+  transition: all 0.2s;
 }
-.men-div:hover {
-  color: orange;
+.category span:before {
+  top: 0;
+  transform: translateY(10px);
 }
-.boys-div:hover {
-  color: orange;
+.category span:after {
+  bottom: 0;
+  transform: translateY(-10px);
 }
-.girls-div:hover {
-  color: orange;
+.category span:hover:before,
+.category span:hover:after {
+  opacity: 1;
+  transform: translateY(0px)
 }
-.cart-div:hover {
-  color:orange;
-} 
+/*** border on category on hover ***/
+
 

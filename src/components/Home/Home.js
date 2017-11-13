@@ -49,6 +49,7 @@ class Home extends Component {
                 <Navbar />
                 <Landing/>
                 <div className='home-page'>
+                <div className='product-title'>Trending Now</div>
                     <div className='main-container'>
                         {products}
                     </div>

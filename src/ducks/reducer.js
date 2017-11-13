@@ -1,4 +1,3 @@
-import React from 'react'
 import axios from 'axios';
 
 
@@ -104,10 +103,9 @@ export default function reducer( state = initialState, action){
         //console.log("it get here", state.shoppingCart)
         newCart.map( (item, i) => {
             return newTotal += parseFloat(item.price)
-            //return toNum = newTotal.toFixed(2);
             //console.log("TOTAL:", newTotal)
         })
-        return Object.assign ({}, state, {total: newTotal} );
+        return Object.assign ({}, state, {total: newTotal.toFixed(2)} );
 
         case ITEMS_IN_CART:
         let newShopCart = state.shoppingCart.slice();

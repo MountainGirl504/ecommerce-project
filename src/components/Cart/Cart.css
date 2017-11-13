@@ -1,11 +1,12 @@
 /*** CART ***/
 .cart-main-container {
     width: 100%;
-    height: 100vh;
-    background: snow;
+    min-height: 60vh;
+    background: rgb(255,255,255);
     display: flex;
     justify-content: center;
-    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     /* border: 1px solid green; */
 }
 .cart-page {
@@ -13,11 +14,9 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    /* background: yellow; */
 }
 .empty-cart {
     width: 100%;
-    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,10 +33,11 @@
     background: white;
     display: flex;
     justify-content: flex-start;
-    border: 1px solid lightgrey;
+    border: 1px solid rgb(228, 224, 224);
+    box-shadow: 3px 3px 5px  #f3ecec;
     border-radius: 5px;
     margin: 4px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 #cart-pic {
     margin: 5px;

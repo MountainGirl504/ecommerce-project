@@ -69,17 +69,19 @@ class Navbar extends Component {
                     </div>
 
                     <div className='navbar animated slideInDown'>
-                        <Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='home-div category'>Home</div></Link>
+                        <div className='inner-navbar'>
+                       <Link to='/' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='home-div category'><span>Home</span></div></Link>
 
-                        <Link to='/product/category/woman' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='women-div category' style={{ textDecoration: 'none' }}>Women</div></Link>
+                        <Link to='/product/category/woman' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='women-div category' ><span>Women</span></div></Link>
 
-                        <Link to='/product/category/men' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='men-div category'>Men</div></Link>
+                        <Link to='/product/category/men' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='men-div category'><span>Men</span></div></Link>
 
-                        <Link to='/product/category/boys' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='boys-div category' style={{ textDecoration: 'none' }}>Boys</div></Link>
+                        <Link to='/product/category/boys' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='boys-div category' ><span>Boys</span></div></Link>
 
-                        <Link to='/product/category/girls' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='girls-div category'>Girls</div></Link>
+                        <Link to='/product/category/girls' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='girls-div category'><span>Girls</span></div></Link>
                         
-                        <Link to='/cart' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='cart-div category' >Cart</div></Link>
+                        <Link to='/cart' style={{ textDecoration: 'none', color: 'lavenderblush' }}><div className='cart-div category' ><span>Cart</span></div></Link>
+                        </div>
                     </div>
                 </div>
             </div>

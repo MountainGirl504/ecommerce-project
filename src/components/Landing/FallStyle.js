@@ -18,8 +18,8 @@ export default class FallStyle extends Component {
         <div className='landing-page'>
             <div className='fall-pic-div'>
             
-                        <div className='fall-text1 hello'>NEW FALL ESSENTIALS</div>
-                        <div className='fall-text2'>Demin chore jackets, Polartec hoodies and Chelsea boots are just some of the go-to items you'll need this season.</div>
+                        <div className='fall-text1 animated slideInLeft hello'>NEW FALL ESSENTIALS</div>
+                        <div className='fall-text2 animated slideInRight'>Denim chore jackets, Polartec hoodies and Chelsea boots are just some of the go-to items you'll need this season.</div>
 
                         <div><img className='fall-pic' src={fallStyle} alt=""/></div>
             </div>       
