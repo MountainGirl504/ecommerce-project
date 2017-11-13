@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './../Navbar/Navbar'
 import { connect } from 'react-redux'
-import { removeFromCart, calculateTotal, cartItems, getUserInfo } from './../../ducks/reducer'
+import { removeFromCart, calculateTotal, cartItems, getUserInfo, emptyCart } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
@@ -11,6 +11,7 @@ import Footer from './../Footer/Footer'
 
 
 class Cart extends Component {
+  
 
   componentDidMount() {    //invoked after a component is mounted
     this.props.calculateTotal(); //calculates total in small cart ONLY after hitting Cart
@@ -25,7 +26,9 @@ class Cart extends Component {
     //console.log('token', token) ;
     axios.post('api/payment', { token, amount: this.props.total })
       .then(response => {
-        alert('Thank you for your purchase!')
+        if (response!==500) {
+         return this.props.emptyCart()
+        }   
       });
   }
 
@@ -94,4 +97,4 @@ function mapStateToProps(state) {
     user: state.user
   }
 }
-export default connect(mapStateToProps, { removeFromCart, calculateTotal, cartItems, getUserInfo })(Cart);
+export default connect(mapStateToProps, { removeFromCart, calculateTotal, cartItems, getUserInfo, emptyCart })(Cart);

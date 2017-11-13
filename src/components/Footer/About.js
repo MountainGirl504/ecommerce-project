@@ -6,6 +6,7 @@ import nodeLogo from './../../Assets/node.png'
 import postgresql from './../../Assets/postgresql-logo.png'
 import reduxLogo from './../../Assets/redux.png'
 import stripeLogo from './../../Assets/stripe.svg'
+import css from './../../Assets/css3.png'
 import Navbar from './../Navbar/Navbar'
 import Footer from './Footer'
 import './Footer.css'
@@ -26,9 +27,9 @@ export default class About extends Component {
           <ul className='pic-list'>
             <li><img className='img' src={reactLogo} alt="" /></li>
             <li><img className='img' src={stripeLogo} alt=""/></li>
-            <li><FontAwesome className='img' name='css3' size='3x' /></li>
-            <li><img className='img' src={massiveLogo} alt="" /></li>
-            <li><img className='img' src={nodeLogo} alt="" /></li>
+            <li><img className='img' id='css' src={css} alt=""/></li>
+            <li><img className='img' id='massive'src={massiveLogo} alt="" /></li>
+            <li><img className='img' id='node' src={nodeLogo} alt="" /></li>
             <li><img className='img' src={postgresql} alt="" /></li>
             <li><img className='img' id='redux' src={reduxLogo} alt="" /></li>
           </ul>

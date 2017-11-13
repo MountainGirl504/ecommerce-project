@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import bag2 from '../../Assets/bag-icon2.png'
 import { Link } from 'react-router-dom'
-//import Search from './../Seach/Search'
 import { connect } from 'react-redux'
 import { calculateTotal, cartItems, getUserInfo } from './../../ducks/reducer'
 import './Navbar.css'
-//import logo1 from './../../Assets/THE NEW YOU1.png'
-
 
 
 

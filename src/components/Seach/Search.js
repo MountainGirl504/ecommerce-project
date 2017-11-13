@@ -47,7 +47,7 @@ class Search extends Component {
        let filtered = this.state.filteredList.map((item, i) => {
         if (this.state.allProducts) {
           return (
-            <div className='item-container'>
+            <div className='item-container' key={i}>
               <div className='pic-container'><Link to={`/productDetails/${item.id}`}>
                 <img className='main-pic' src={item.product_image} alt='main-pic' /></Link>
               </div>

@@ -17,7 +17,6 @@
     z-index: 1;
     margin: 20px;
     padding: 20px;
-    border-radius: 10px;
     /* border: 1px solid red; */
 }
 .landing-pic {
@@ -59,16 +58,11 @@ so they don't move surrounding elements ***/
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     /* border: 1px solid blue; */
 }
-@media(max-width: 1000px){
-    .landing-pic-div{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
+@media(max-width: 900px){
+   
     
 }
 

@@ -18,7 +18,7 @@ class ProductDetails extends Component {
   render() {
     const productInfo = this.props.product.map(item => {
       //console.log(item)  //logs {item}
-      console.log("DETAILS:", this.props)
+      //console.log("DETAILS:", this.props)
       return (
         <div key={item.id} className='detail-item-container'>
           <div className='small-pic-div'>

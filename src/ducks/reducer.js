@@ -16,6 +16,7 @@ const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 const CALC_TOTAL = 'CALC_TOTAL'
 const ITEMS_IN_CART = 'ITEMS_IN_CART'
 const GET_USER_INFO = 'GET_USER_INFO'
+const EMPTY_CART = "EMPTY_CART"
 //const GET_CATEGORY = 'GET_CATEGORY'
 
 
@@ -26,7 +27,12 @@ const GET_USER_INFO = 'GET_USER_INFO'
 //         payload: axios.get(`/product/category/${category}`)
 //     }
 // }
-
+export function emptyCart(){
+    return {
+        type: EMPTY_CART,
+        payload: null
+    }
+}
 export function getUserInfo(){
     return {
         type: GET_USER_INFO,
@@ -80,6 +86,9 @@ export default function reducer( state = initialState, action){
     //console.log('reducer is running')
     //console.log(state);
     switch( action.type) {
+        case EMPTY_CART:
+        return Object.assign({}, state, initialState)
+
         case GET_PRODUCT_INFO + '_FULFILLED':
         return Object.assign({}, state, {product: action.payload.data});
 

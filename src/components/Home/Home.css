@@ -17,12 +17,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    flex-wrap: wrap;
     margin-left: 60px;
     /* border: 1px solid ; */
 }
 
  .main-container {
-    width: 1290px;
+    width: 100%;
     background: rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
@@ -104,4 +105,9 @@
     color: darkorange;
     /* border: 1px solid */
 } 
-
+@media(max-width: 1000px){
+    .product-title {
+        width: 200px;
+        font-size: 20px;
+    }
+}

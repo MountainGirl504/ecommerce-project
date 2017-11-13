@@ -75,7 +75,7 @@
 
 .about-main-div{
     width: 100%;
-    height: 525px;
+    height: 500px;
     font-family: Nunito;
     display: flex;
     flex-direction: column;
@@ -106,10 +106,28 @@
     height: 80px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 5px;
     
     /* border: 1px solid blue; */
 }
 #redux{
+    width: 130px;
+    height: 40px;
+    margin-top: 20px;
+}
+#css{
+    width: 70px;
+    height: 80px;
+}
+#massive{
+    width: 130px;
+    height: 80px;
+    margin-top: 10px;
+}
+#node{
     width: 80px;
-    height: 50px;
+    height: 70px;
+    margin-top: 10px;
 }

@@ -32,7 +32,7 @@ class Category extends Component {
                     let category = item.category.toLowerCase();
                     return category.includes(input)
                 })
-                console.log(filteredItems);
+                //console.log(filteredItems);
                 
                 this.setState({
                     filteredList: filteredItems
@@ -42,7 +42,6 @@ class Category extends Component {
     componentWillMount() {
         axios.get('/product/all')
             .then(res => {
-
                 this.setState({
                     allProducts: res.data
                 })
@@ -52,8 +51,7 @@ class Category extends Component {
                     let category = item.category.toLowerCase();
                     return category.includes(input)
                 })
-                console.log(filteredItems);
-                
+                // console.log(filteredItems); 
                 this.setState({
                     filteredList: filteredItems
                 })
