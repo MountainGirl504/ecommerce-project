@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import FontAwesome from 'react-fontawesome'
 import reactLogo from './../../Assets/react-logo-colored.png'
 import massiveLogo from './../../Assets/massive.jpg'
 import nodeLogo from './../../Assets/node.png'

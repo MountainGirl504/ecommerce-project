@@ -128,7 +128,7 @@
      width: 130px;
      height: 50px;
      margin-left: 1vw;
-     border: 1px solid red;
+     /* border: 1px solid red; */
   }
    .input-box {
      display: none;

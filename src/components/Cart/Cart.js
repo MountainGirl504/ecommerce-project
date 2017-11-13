@@ -26,7 +26,8 @@ class Cart extends Component {
     //console.log('token', token) ;
     axios.post('api/payment', { token, amount: this.props.total })
       .then(response => {
-        if (response!==500) {
+        if (response !==500 ) {
+         console.log("Thank you for the purchase")
          return this.props.emptyCart()
         }   
       });
