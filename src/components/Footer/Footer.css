@@ -73,6 +73,10 @@
 
 /*** ABOUT PAGE ***/
 
+.profilePic {
+    width: 200px;
+    height: 240px;
+}
 .about-main-div{
     width: 100%;
     height: 500px;

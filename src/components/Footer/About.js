@@ -9,6 +9,7 @@ import css from './../../Assets/css3.png'
 import Navbar from './../Navbar/Navbar'
 import Footer from './Footer'
 import './Footer.css'
+import profilePic from '../../Assets/ProfilePic.jpg'
 
 export default class About extends Component {
   render() {
@@ -18,6 +19,9 @@ export default class About extends Component {
        
         <div className='about-main-div'>
         <div className='about-title'></div>
+        <div className='myPic'>
+          <img className='profilePic' src={profilePic} alt=""/>
+        </div>
         <div className='hello-text name'>Hello World, my name is Natalia!</div>
           <div className='hello-text'>For my personal project, I decided to make a clothing ecommerce website. </div>
           <div className='hello-text'>I may or may not have used some other company's material...</div>
