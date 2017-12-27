@@ -7,26 +7,25 @@ import './Navbar.css'
 
 
 
-class Navbar extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            userInput: '',
-            userData: {}
+    class Navbar extends Component {
+        constructor(props){
+            super(props)
+            this.state={
+                userInput: '',
+                userData: {}
+            }
+            this.handleChange=this.handleChange.bind(this);
         }
-        this.handleChange=this.handleChange.bind(this);
-    }
-
-    componentDidMount(){
-        this.props.getUserInfo();
-    }
-
-    handleChange(e){
-        this.setState({
-            userInput: e.target.value
-        })
-    }
-
+    
+        componentDidMount(){
+            this.props.getUserInfo();
+        }
+    
+        handleChange(e){
+            this.setState({
+                userInput: e.target.value
+            })
+        }
 
     render() {
         return (
