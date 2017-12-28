@@ -1,55 +1,54 @@
 .main-header {
   width: 100%;
   height: 100%;
-  /* background:lightgrey; */
-  /* color: white;     */
   display: flex;
-  flex-direction: row;
   justify-content: center;
  }
  
  .persistent-nav {
     width: 100%;
-    height: 50px;
-    background: black;
-    color:white;
+    height: 7%;
+    background: rgb(14, 12, 12);
+    color:rgb(240, 228, 228);
     position: fixed;
-    z-index: 500;
+    z-index: 2;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
     border-bottom: 1px solid rgb(41, 39, 39);
     /* border: 3px dashed red; */
  }
 
-
-
-
  /*** NAME-LOGO DIV ***/
  .logo {
-    min-width: 8em;
+    /* height: 100%; */
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 3vw;
+    margin-left: 10%;
     background-image: url('./../../Assets/THE NEW YOU1.png');
     background-repeat: no-repeat;
     /* border: 1px solid red; */
  }
+ .logo-search{
+   width: 100%;
+   height: 100%;
+   display: flex; 
+   justify-content: flex-end;
+ }
 
 /**** SEARCH  DIV****/
  .search-div {
- 
-   width: 30%;
+   /* width: 30%; */
    display: flex;
    align-items: center;
-   justify-content: flex-start;
    /* border: 1px solid blue; */
  }
  .input-box {
-    width: 15vw;
+    width: 17vw;
     height: 3vh;
-    margin: 9px;
+    margin: 1vw;
     border-radius: 3px;
     font-family: Nunito;
     font-size: 13px;
@@ -57,30 +56,23 @@
     border: none;
  }
  .btn-find {
-   width: 4vw;
+   width: 5vw;
    height: 2.5vh;
    font-family: Nunito;
-   font-size: 13px;
+   border-radius: 3px;   
+   font-size: 1.5vh;
    font-style: italic;
-   border: 1px solid white;
+   /* border: 1px solid white; */
  }
-
- /* .find-box {
-    width: 50%;
-    border: 1px solid white; 
- } */
-
 
  /*** LOGIN DIV ***/
  .nav-login-div {
-
-    width: 30%;
-    /* height: 2vh; */
+    /* height: 3vh; */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 9px; */
+    padding-top: 10px;
     /* border: 1px solid yellow; */
  }
  .nav-login {
@@ -112,71 +104,7 @@
     /* border: 1px solid green; */
  }
  
- @media (max-width: 900px) {
-   .main-header {
-     width: 100%;
-     height: 100%;
-   }
-   .persistent-nav {
-     width: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-   }
-   .logo{
-     width: 130px;
-     height: 50px;
-     margin-left: 1vw;
-     /* border: 1px solid red; */
-  }
-   .input-box {
-     display: none;
-   }
-   .btn-find {
-     display: none;
-   }
-    .hello-message {
-      padding-top: 9px;
-      font-size: 14px;
-    }
-    .nav-login-div {
-      width: 30%;
-      font-size:10px;
-    }
-    .hello-logout-div {
-      display: flex;
-      flex-direction: column;
-    }
-    .nav-logout {
-      font-size: 10px;
-      width: 30%;
-      display: none;
-    }
-  
-    .bag{
-      width: 25px;
-      height: 20px;
-    }
-    .shop-div {
-      width: 80px;
-      display: flex;
-      justify-content: space-between;
-      /* border: 1px solid white; */
-    }
-    .num-item {
-      /* border: 1px solid red; */
-      font-size: 14px;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .num-total {
-      /* border: 1px solid yellow; */
-      font-size: 14px;
-    }
-    .category {
-      font-size: 16px;
-    }
- } 
+ 
  .nav-logout {
     width: 20%;
     height: 100%;
@@ -193,19 +121,15 @@
  /*** SHOP DIV***/
  .shop-div {
    display: flex;
-   width: 160px;
+   width: 10em;
    justify-content: space-around;
    align-items: center;
    /* border: 1px solid green; */
    margin-right: 3vw;
-   /* border: 1px solid white; */
  }
  .bag {
-    width: 45px;
-    height: 40px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    width: 2em;
+    height: 2em;
     /* border: 1px solid white; */
  }
  .num-item {
@@ -220,7 +144,7 @@
  }
  .num-total {
     width: 100%;
-    height: 5vh;
+    /* height: 5vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,8 +155,8 @@
  /*** CATEGORIES ***/
  .navbar {
     width: 100%;
-    height: 40px;
-    background: black;
+    height: 7vh;
+    background: rgb(14, 12, 12);
     padding-top: 60px;
     display: flex;
     justify-content: center;
@@ -245,7 +169,7 @@
     animation-delay: 0.5s;
  }
  .inner-navbar{
-   width: 70%;
+   width: 90%;
    display: flex;
    justify-content: space-around;
  }
@@ -284,3 +208,71 @@
 /*** border on category on hover ***/
 
 
+/* ********************************** */
+/* ~~~~~~~~~ MEDIA QUERY ~~~~~~~~~~~~ */
+/* ********************************** */
+@media (max-width: 900px) {
+  .main-header {
+    width: 100%;
+    height: 100%; 
+  }
+  .persistent-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo{
+    display: none;
+ }
+ .search-div{
+   width: 60%;
+   /* border: 1px solid red; */
+ }
+ .input-box{
+  width: 90%;
+ }
+  .btn-find{
+    min-width: 9vw;
+    font-size: 10%;
+  }
+   .hello-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 9px;
+    font-size: 12px;
+   }
+ 
+   .hello-logout-div {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+   .nav-logout {
+     font-size: 12px;
+   }
+   .nav-login-div{
+    
+     /* border: 1px solid yellow; */
+   }
+   .nav-login{
+     
+     font-size: 12px;
+   }
+   .shop-div {
+     width: 21%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* border: 1px solid white; */
+   }
+   .num-total, .num-item {
+     font-size: 12px;
+     display: flex;
+     /* border: 1px solid yellow; */
+   }
+   .category {
+     font-size: 16px;
+   }
+} 

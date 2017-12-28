@@ -32,15 +32,17 @@ import './Navbar.css'
             <div>
                 <div className='main-header'>
                     <div className='persistent-nav'>
+                    
                     <Link to='/' className='logo'></Link>
 
 
                         <div className='search-div'>
-                            <div ><input className='input-box' type='text'  placeholder='Search...'
+                            <div><input className='input-box' type='text'  placeholder='Search...'
                                 onChange={this.handleChange}/></div>
                             <div className='find-box'><Link to={`/search/${this.state.userInput}`} onSubmit={this.props.find} style={{  color: 'lavenderblush' }}><button className='btn-find' type='submit'>FIND</button> 
                             </Link></div> 
                         </div>  
+                        
 
 
                         
@@ -51,7 +53,7 @@ import './Navbar.css'
                                 <div className='nav-logout' ><a href={process.env.REACT_APP_LOGOUT} style={{ color: 'lavenderblush' }}>Logout</a></div>
                             </div>
                             ) :
-                            <div className='nav-login' ><a href={process.env.REACT_APP_LOGIN} style={{ color: 'lavenderblush' }}> Login / Register </a></div>
+                            <div className='nav-login' ><a href={process.env.REACT_APP_LOGIN} style={{ color: 'lavenderblush'}}> Login / Register </a></div>
                             }
                         </div>
                             
